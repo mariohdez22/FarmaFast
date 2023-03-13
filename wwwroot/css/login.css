@@ -1,0 +1,77 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient( rgba(46, 200, 228, 0.5),rgba(53, 43, 189, 0.925)), url(/img/prueba.jpg) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.cont {
+    display: grid;
+    grid-template-areas: "box";
+}
+
+.box {
+    grid-area: box;
+}
+
+@media (min-width:200px) {
+    .cont {
+        grid-template: " box " auto/ 60v;
+    }
+}
+
+@media (min-width:400px) {
+    .cont {
+        grid-template: " box " auto / 55vh;
+    }
+}
+
+
+
+.login {
+    width: 460px;
+    height: min-content;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+}
+
+    .login h1 {
+        font-size: 36px;
+        color: #3887F9;
+        margin-bottom: 25px;
+    }
+
+    .login form .form-group {
+        margin-bottom: 12px;
+    }
+
+.farma {
+    color: #01B3E3;
+}
+
+.ff {
+    color: #01B3E3;
+}
+
+.btn {
+    background: linear-gradient(24deg, #1517b9, #6dd5ed );
+    border: 0px;
+    margin-top: 2vh;
+    color: white;
+}
+
+
+.box {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px
+}
