@@ -1,0 +1,665 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap');
+
+#FranjaMenuVerde 
+{
+    background: linear-gradient(6deg, #B8BFF3, #C1FAF8) !important;
+    overflow: hidden;
+    position: relative;
+    border-radius: 27px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 6px, rgba(0, 0, 0, 0.23) 2px -1px 6px;
+}
+
+#TituloMenuVerde 
+{
+    font-family: 'Raleway', sans-serif;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-bottom: 50px;
+    color: #353535;
+}
+
+#PatronMenuVerde
+{
+    position: absolute;
+    transform: translate(65%, -25%) rotate(-20deg);
+    z-index: 1 !important;
+    height: 60vh;
+    width: 65vw;
+}
+
+#ApartadoMenuVerde
+{
+    background-color: rgb(255, 255, 255, 0.65);
+    border: 1px solid #CFCFCF;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+#DisplayApartadoMenuVerde
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+#BotonMenu1 
+{
+    border-radius: 50px;
+    margin-right: 15px;
+    background-color: #8BD284;
+    border: 0px;
+    font-family: 'Raleway', sans-serif;
+    transition: 0.5s;
+}
+
+#BotonMenu1:hover
+{
+    box-shadow: rgb(106, 180, 99) 3px 3px 6px 0px inset, rgba(115, 191, 107, 0.5) -3px -3px 6px 1px inset;
+}
+
+#BotonMenu2 
+{
+    border-radius: 50px;
+    background-color: #B0B0B0;
+    border: 0px;
+    font-family: 'Raleway', sans-serif;
+    transition: 0.5s;
+}
+
+#BotonMenu2:hover 
+{
+    box-shadow: rgb(149, 149, 149) 3px 3px 6px 0px inset, rgba(164, 164, 164, 0.5) -3px -3px 6px 1px inset;
+}
+
+#InputMenu
+{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    outline: none;
+    border-right: 1px solid #CFCFCF;
+    border-top: 1px solid #CFCFCF;
+    border-bottom: 1px solid #CFCFCF;
+}
+
+#InputMenu:focus
+{
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+#InputIconoMenu 
+{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: #DDFBFD;
+    border-left: 1px solid #CFCFCF;
+    border-top: 1px solid #CFCFCF;
+    border-bottom: 1px solid #CFCFCF;
+}
+
+/*-----------------------------------------------------------------------------------------------------------*/
+
+#ContenidoMuestraUsuarios
+{
+    overflow-y: scroll;
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    /*background-color: aquamarine;*/
+    height: 60vh;
+}
+
+#ContenidoMuestraUsuarios::-webkit-scrollbar 
+{
+    -webkit-appearance: none;
+}
+
+#ContenidoMuestraUsuarios::-webkit-scrollbar:vertical 
+{
+    width: 10px;
+}
+
+#ContenidoMuestraUsuarios::-webkit-scrollbar-button:increment, #scroll::-webkit-scrollbar-button 
+{
+    display: none;
+}
+
+#ContenidoMuestraUsuarios::-webkit-scrollbar:horizontal 
+{
+    height: 10px;
+}
+
+#ContenidoMuestraUsuarios::-webkit-scrollbar-thumb 
+{
+    background-color: #DFDFDF;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+#ContenidoMuestraUsuarios::-webkit-scrollbar-track 
+{
+    border-radius: 10px;
+}
+
+#TarjetaMuestraUsuario
+{
+    margin-top: 10px;
+    margin-right: 20px;
+    width: 444px; 
+    height: auto;
+    border-radius: 27px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border: 0px;
+}
+
+#TituloMuestraUsuario
+{
+    border-radius: 50px;
+    background: linear-gradient(24deg, #498DBC, #50D1A8);
+    border: 0px;
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+    padding-bottom: 6px !important;
+}
+
+#NombradosMuestraUsuario
+{
+    display: flex;
+    padding-top: 6px;
+}
+
+#NombreMuestraUsuario
+{
+    font-family: 'Raleway', sans-serif;
+    margin-right: 10px;
+    color: white;
+}
+
+#TipoUsuarioMuestraUsuario
+{
+    background-color: #FFFFFF;
+    height: 25px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 50px;
+    border: 1px solid #A9A9A9;
+    font-family: 'Raleway', sans-serif;
+    margin-top: 1px;
+}
+
+/*----------------------------*/
+
+#ParteImagenMuestraUsuario 
+{
+    margin-right: -6px;
+}
+
+#RedondeadoImagenMuestraUsuario
+{
+    overflow: hidden;
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+
+}
+
+/*-----------------------------------------------------------------------------------------------------------*/
+
+#CuerpoContenidoUsuario
+{
+    display: flex;
+    flex-direction: row;
+}
+
+#CuerpoParte1
+{
+    margin-right: 15px;
+    flex-grow: 1;
+}
+
+#CuerpoParte2 
+{
+    flex-grow: 1;
+}
+
+#UlCuerpoUsuario 
+{
+    display: flex;
+    flex-direction: row;
+    padding-left: 0px !important;
+    margin-bottom: 15px;
+}
+
+#IconoCuerpoUsuario
+{
+    background: #DADADA;
+    color: gray;
+    padding: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 5vh;
+}
+
+#NombreCuerpoUsuario 
+{
+    background: #ECECEC;
+    padding: 4px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100%;
+}
+
+#Holas
+{
+    width: 32%;
+    height: 25px;
+    overflow: hidden;
+    position: absolute;
+}
+
+#BotonCuerpo1 
+{
+    border-radius: 50px;
+    margin-right: 15px;
+    background-color: #E8E8E8;
+    border: 0px;
+    font-family: 'Raleway', sans-serif;
+    transition: 0.5s;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+    color: #6D6D6D;
+}
+
+#BotonCuerpo1:hover 
+{
+    background-color: #E7A944;
+    color: white;
+}
+
+#BotonCuerpo2 
+{
+    border-radius: 50px;
+    margin-right: 15px;
+    background-color: #E8E8E8;
+    border: 0px;
+    font-family: 'Raleway', sans-serif;
+    transition: 0.5s;
+    margin-left: -0.5vw;
+    color: #6D6D6D;
+}
+
+#BotonCuerpo2:hover 
+{
+    background-color: #E74444;
+    color: white;
+}
+
+/*-----------------------------------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 1250px) 
+{
+    #ApartadoBotonesMenu
+    {
+        width: 400px;
+    }
+
+    #NombradosMuestraUsuario 
+    {
+        padding-top: 6px;
+    }
+
+    #TarjetaMuestraUsuario 
+    {
+        width: 48%;
+    }
+
+    #PatronMenuVerde 
+    {
+        position: absolute;
+        transform: translate(60%, -15%) rotate(-15deg);
+        z-index: 1 !important;
+        height: 50vh;
+        width: 70vw;
+    }
+
+}
+
+@media screen and (max-width: 1211px) 
+{
+    #CuerpoContenidoUsuario 
+    {
+   
+        flex-direction: column;
+    }
+
+    #CuerpoParte1 
+    {
+        margin-right: 0px;
+    }
+
+    #Holas 
+    {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 1141px) 
+{
+    #TarjetaMuestraUsuario 
+    {
+        width: 47.5%;
+    }
+}
+
+@media screen and (max-width: 936px) 
+{
+    #TarjetaMuestraUsuario 
+    {
+        width: 47%;
+    }
+}
+
+@media screen and (max-width: 1000px) 
+{
+    #ApartadoBuscadoMenu 
+    {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 905px) 
+{
+    #TarjetaMuestraUsuario 
+    {
+        border-top-left-radius: 50px !important;
+        border-top-right-radius: 50px !important;
+    }
+
+    #TituloMuestraUsuario 
+    {
+        height: 13vh;
+    }
+
+    #NombradosMuestraUsuario 
+    {
+        display: flex;
+        flex-direction: column;
+        padding-top: 6px;
+        margin-left: 10px;
+    }
+
+    #TipoUsuarioMuestraUsuario 
+    {
+        margin-top: -6px;
+        text-align: center;
+        width: 95%;
+    }
+
+    #RedondeadoImagenMuestraUsuario 
+    {
+        width: 60px;
+        height: 60px;
+        margin-top: 2px !important;
+        margin-right: 2px !important;
+    }
+
+    #PatronMenuVerde 
+    {
+        position: absolute;
+        transform: translate(60%, -20%) rotate(-20deg);
+        z-index: 1 !important;
+        height: 50vh;
+        width: 71vw;
+    }
+}
+
+@media screen and (max-width: 803px) 
+{
+
+    #TarjetaMuestraUsuario 
+    {
+        border-top-left-radius: 30px !important;
+        border-top-right-radius: 30px !important;
+    }
+
+    #TarjetaMuestraUsuario 
+    {
+        width: 100%;
+    }
+
+    #TituloMuestraUsuario {
+        height: 21.5%;
+    }
+
+    #NombradosMuestraUsuario {
+        display: flex;
+        flex-direction: row;
+        padding-top: 9px;
+        margin-left: 10px;
+    }
+
+    #TipoUsuarioMuestraUsuario {
+        margin-top: 0px;
+        text-align: center;
+        width: 95%;
+    }
+
+    #RedondeadoImagenMuestraUsuario {
+        width: 40px;
+        height: 40px;
+        margin-top: 2px !important;
+        margin-right: 2px !important;
+    }
+}
+
+@media screen and (max-width: 768px) 
+{
+    #ApartadoMenuVerde
+    {
+        height: 99%;
+    }
+
+    #GrupoInput
+    {
+        margin-top: -1px;
+        margin-left: 0px !important;
+    }
+
+    #ApartadoBuscadoMenu {
+        width: 30%;
+    }
+
+    #TituloMuestraUsuario 
+    {
+        height: 20.6%;
+    }
+
+}
+
+/* aqui empieza tamaño movil y tablet*/
+@media screen and (max-width: 725px) 
+{
+    #FranjaMenuVerde
+    {
+        height: 31vh;
+    }
+
+    #TituloMenuVerde 
+    {
+        text-align: center !important;
+        margin-left: 0px;
+        margin-bottom: 15px;
+    }
+
+    #ApartadoMenuVerde 
+    {
+        height: 100%;
+    }
+
+    #DisplayApartadoMenuVerde
+    {
+        flex-direction: column;
+    }
+
+    #ApartadoBotonesMenu 
+    {
+        width: 100%;
+        padding-top: 15px !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+    #BotonMenu1
+    {
+        width: 48.4%;
+    }
+
+    #BotonMenu2 
+    {
+        width: 48.4%;
+    }
+
+    #ApartadoBuscadoMenu 
+    {
+        width: 100%;
+        padding-bottom: 15px !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+    #BotonCuerpo1
+    {
+        width: 47.3% !important;
+    }
+
+    #BotonCuerpo2 
+    {
+        width: 47.3% !important;
+    }
+
+    #PXMenuVerde 
+    {
+        flex-direction: column;
+    }
+
+    #PatronMenuVerde 
+    {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 688px) 
+{
+    #FranjaMenuVerde 
+    {
+        height: 38vh;
+    }
+
+    #ApartadoMenuVerde 
+    {
+        height: 100%;
+    }
+
+    #BotonMenu1 {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    #BotonMenu2 {
+        width: 100%;
+    }
+
+    #BotonCuerpo1 {
+        width: 100% !important;
+        margin-bottom: 15px;
+    }
+
+    #BotonCuerpo2 {
+        width: 100% !important;
+        margin-left: 0.5px;
+    }
+
+}
+
+@media screen and (max-width: 430px) 
+{
+    #TarjetaMuestraUsuario 
+    {
+        border-top-left-radius: 50px !important;
+        border-top-right-radius: 50px !important;
+    }
+
+    #TituloMuestraUsuario {
+        height: 12.5vh;
+    }
+
+    #NombradosMuestraUsuario {
+        display: flex;
+        flex-direction: column;
+        padding-top: 8px;
+        margin-left: 10px;
+    }
+
+    #TipoUsuarioMuestraUsuario {
+        margin-top: -6px;
+        text-align: center;
+        width: 95%;
+    }
+
+    #RedondeadoImagenMuestraUsuario {
+        width: 60px;
+        height: 60px;
+        margin-top: 2px !important;
+        margin-right: 2px !important;
+    }
+}
+
+@media screen and (max-width: 376px) 
+{
+    #TituloMenuVerde 
+    {
+        font-size: 18px;
+    }
+
+    #TituloMuestraUsuario {
+        height: 10.9vh;
+    }
+
+    #NombradosMuestraUsuario {
+        display: flex;
+        flex-direction: column;
+        padding-top: 9px;
+        margin-left: 10px;
+    }
+
+    #NombreMuestraUsuario
+    {
+        font-size: 15px;
+    }
+
+    #TipoUsuarioMuestraUsuario {
+        margin-top: -6px;
+        text-align: center;
+        width: 93%;
+        height: 40%;
+        font-size: 12px;
+    }
+
+    #RedondeadoImagenMuestraUsuario {
+        width: 50px;
+        height: 50px;
+        margin-top: 2px !important;
+        margin-right: 2px !important;
+    }
+
+    #Holas 
+    {
+        width: 61%;
+    }
+
+}
+
+
+
+

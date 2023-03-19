@@ -1,0 +1,358 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Estilos
+{
+    <link rel="stylesheet" href="~/css/usuarios.css" asp-append-version="true" />
+}
+
+
+  <div class="row g-2">
+
+    <div class="col-12">
+      
+        <div id="FranjaMenuVerde" class="row" style="margin-left: 0px; margin-right: 0px;">
+            <div id="PXMenuVerde" class="col-12" style="padding-left: 0px; padding-right: 0px; display: flex;">
+                <div class="">
+                    <h1 id="TituloMenuVerde">Administracion Usuarios</h1>
+                </div>
+                <img id="PatronMenuVerde" src="/img/FranjaAzulada.png" alt="login-icon" />
+            </div>
+            <div class="col-12" style="padding-left: 0px; padding-right: 0px; z-index: 20  !important;">
+                <div id="ApartadoMenuVerde" class="rounded-5">
+                    <div id="DisplayApartadoMenuVerde">
+                        <div id="ApartadoBotonesMenu" class="col-4 p-2"> 
+                            <a id="BotonMenu1" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Agregar Usuarios</a>
+                            <a id="BotonMenu2" class="btn btn-secondary" ><i class="bi bi-file-earmark-pdf-fill"></i> Generar Reporte</a>
+                        </div>    
+                        <div id="ApartadoBuscadoMenu" class="col-3 p-2">
+                            <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                               <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-search"></i></div>
+                               <input id="InputMenu" type="text" class="form-control" placeholder="Buscar Usuario">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="ContenidoMuestraUsuarios" class="col-12">
+
+        <div id="TarjetaMuestraUsuario" class="card border-secondary mb-3">
+          <div id="TituloMuestraUsuario" class="card-header">
+              <div id="NombradosMuestraUsuario">
+                  <h4 id="NombreMuestraUsuario">MarioHerzFBT</h4>
+                  <div id="TipoUsuarioMuestraUsuario"><p>Administrador</p></div>
+              </div>
+              <div id="ParteImagenMuestraUsuario">
+                  <div id="RedondeadoImagenMuestraUsuario">
+                      <img width="60" height="60" src="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2021/09/mejor-aplicacion-fondos-pantalla-animados-llegaria-android-dentro-poco-2482649.jpg?tf=3840x" />
+                  </div>
+              </div>
+          </div>
+          <div id="CuerpoMuestraUsuario" class="card-body text-secondary">
+               
+              <div id="CuerpoContenidoUsuario">
+                  <div id="CuerpoParte1">
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre Usuario"><i class="bi bi-person-circle"></i></div>
+                          <div id="NombreCuerpoUsuario">Mario Oscar</div>
+                      </div>
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Correo Electronico"><i class="bi bi-envelope-fill"></i></div>
+                          <div id="NombreCuerpoUsuario"><div id="Holas"><div>marioherzvlov&Theta;.gmail.com</div></div></div>
+                      </div>
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Celular"><i class="bi bi-telephone-fill"></i></div>
+                          <div id="NombreCuerpoUsuario">7567-9876</div>
+                      </div>
+                  </div>
+                  <div id="CuerpoParte2">
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="DUI"><i class="bi bi-person-vcard-fill"></i></div>
+                          <div id="NombreCuerpoUsuario">0-75679876</div>
+                      </div>
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Estado Usuario"><i class="bi bi-person-fill-exclamation"></i></div>
+                          <div id="NombreCuerpoUsuario">Vigente</div>
+                      </div>
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tipo Usuario"><i class="bi bi-person-fill-gear"></i></div>
+                          <div id="NombreCuerpoUsuario">Administrador</div>
+                      </div>
+                  </div>
+              </div>
+              <div id="CuerpoBotonesUsuario">
+                  <a id="BotonCuerpo1" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Editar</a>
+                  <a id="BotonCuerpo2" class="btn btn-secondary" ><i class="bi bi-file-earmark-pdf-fill"></i> Rechazar</a>
+              </div>
+                
+          </div>
+        </div>
+
+        <div id="TarjetaMuestraUsuario" class="card border-secondary mb-3">
+          <div id="TituloMuestraUsuario" class="card-header">
+              <div id="NombradosMuestraUsuario">
+                  <h4 id="NombreMuestraUsuario">JosueEmaUFP</h4>
+                  <div id="TipoUsuarioMuestraUsuario"><p>Gerente</p></div>
+              </div>
+              <div id="ParteImagenMuestraUsuario">
+                  <div id="RedondeadoImagenMuestraUsuario">
+                      <img width="60" height="60" src="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2021/09/mejor-aplicacion-fondos-pantalla-animados-llegaria-android-dentro-poco-2482649.jpg?tf=3840x" />
+                  </div>
+              </div>
+          </div>
+          <div id="CuerpoMuestraUsuario" class="card-body text-secondary">
+               
+              <div id="CuerpoContenidoUsuario">
+                  <div id="CuerpoParte1">
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre Usuario"><i class="bi bi-person-circle"></i></div>
+                          <div id="NombreCuerpoUsuario">Mario Oscar</div>
+                      </div>
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Correo Electronico"><i class="bi bi-envelope-fill"></i></div>
+                          <div id="NombreCuerpoUsuario"><div id="Holas"><div>marioherzvlov&Theta;.gmail.com</div></div></div>
+                      </div>
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Celular"><i class="bi bi-telephone-fill"></i></div>
+                          <div id="NombreCuerpoUsuario">7567-9876</div>
+                      </div>
+                  </div>
+                  <div id="CuerpoParte2">
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="DUI"><i class="bi bi-person-vcard-fill"></i></div>
+                          <div id="NombreCuerpoUsuario">0-75679876</div>
+                      </div>
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Estado Usuario"><i class="bi bi-person-fill-exclamation"></i></div>
+                          <div id="NombreCuerpoUsuario">Vigente</div>
+                      </div>
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tipo Usuario"><i class="bi bi-person-fill-gear"></i></div>
+                          <div id="NombreCuerpoUsuario">Administrador</div>
+                      </div>
+                  </div>
+              </div>
+              <div id="CuerpoBotonesUsuario">
+                  <a id="BotonCuerpo1" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Editar</a>
+                  <a id="BotonCuerpo2" class="btn btn-secondary" ><i class="bi bi-file-earmark-pdf-fill"></i> Rechazar</a>
+              </div>
+                
+          </div>
+        </div>
+
+        <div id="TarjetaMuestraUsuario" class="card border-secondary mb-3">
+          <div id="TituloMuestraUsuario" class="card-header">
+              <div id="NombradosMuestraUsuario">
+                  <h4 id="NombreMuestraUsuario">DennisUrqOP</h4>
+                  <div id="TipoUsuarioMuestraUsuario"><p>Vendedor</p></div>
+              </div>
+              <div id="ParteImagenMuestraUsuario">
+                  <div id="RedondeadoImagenMuestraUsuario">
+                      <img width="60" height="60" src="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2021/09/mejor-aplicacion-fondos-pantalla-animados-llegaria-android-dentro-poco-2482649.jpg?tf=3840x" />
+                  </div>
+              </div>
+          </div>
+          <div id="CuerpoMuestraUsuario" class="card-body text-secondary">
+               
+              <div id="CuerpoContenidoUsuario">
+                  <div id="CuerpoParte1">
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre Usuario"><i class="bi bi-person-circle"></i></div>
+                          <div id="NombreCuerpoUsuario">Mario Oscar</div>
+                      </div>
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Correo Electronico"><i class="bi bi-envelope-fill"></i></div>
+                          <div id="NombreCuerpoUsuario"><div id="Holas"><div>marioherzvlov&Theta;.gmail.com</div></div></div>
+                      </div>
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Celular"><i class="bi bi-telephone-fill"></i></div>
+                          <div id="NombreCuerpoUsuario">7567-9876</div>
+                      </div>
+                  </div>
+                  <div id="CuerpoParte2">
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="DUI"><i class="bi bi-person-vcard-fill"></i></div>
+                          <div id="NombreCuerpoUsuario">0-75679876</div>
+                      </div>
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Estado Usuario"><i class="bi bi-person-fill-exclamation"></i></div>
+                          <div id="NombreCuerpoUsuario">Vigente</div>
+                      </div>
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tipo Usuario"><i class="bi bi-person-fill-gear"></i></div>
+                          <div id="NombreCuerpoUsuario">Administrador</div>
+                      </div>
+                  </div>
+              </div>
+              <div id="CuerpoBotonesUsuario">
+                  <a id="BotonCuerpo1" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Editar</a>
+                  <a id="BotonCuerpo2" class="btn btn-secondary" ><i class="bi bi-file-earmark-pdf-fill"></i> Rechazar</a>
+              </div>
+                
+          </div>
+        </div>
+
+        <div id="TarjetaMuestraUsuario" class="card border-secondary mb-3">
+          <div id="TituloMuestraUsuario" class="card-header">
+              <div id="NombradosMuestraUsuario">
+                  <h4 id="NombreMuestraUsuario">TheMonrraPT</h4>
+                  <div id="TipoUsuarioMuestraUsuario"><p>Vendedor</p></div>
+              </div>
+              <div id="ParteImagenMuestraUsuario">
+                  <div id="RedondeadoImagenMuestraUsuario">
+                      <img width="60" height="60" src="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2021/09/mejor-aplicacion-fondos-pantalla-animados-llegaria-android-dentro-poco-2482649.jpg?tf=3840x" />
+                  </div>
+              </div>
+          </div>
+          <div id="CuerpoMuestraUsuario" class="card-body text-secondary">
+               
+              <div id="CuerpoContenidoUsuario">
+                  <div id="CuerpoParte1">
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre Usuario"><i class="bi bi-person-circle"></i></div>
+                          <div id="NombreCuerpoUsuario">Mario Oscar</div>
+                      </div>
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Correo Electronico"><i class="bi bi-envelope-fill"></i></div>
+                          <div id="NombreCuerpoUsuario"><div id="Holas"><div>marioherzvlov&Theta;.gmail.com</div></div></div>
+                      </div>
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Celular"><i class="bi bi-telephone-fill"></i></div>
+                          <div id="NombreCuerpoUsuario">7567-9876</div>
+                      </div>
+                  </div>
+                  <div id="CuerpoParte2">
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="DUI"><i class="bi bi-person-vcard-fill"></i></div>
+                          <div id="NombreCuerpoUsuario">0-75679876</div>
+                      </div>
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Estado Usuario"><i class="bi bi-person-fill-exclamation"></i></div>
+                          <div id="NombreCuerpoUsuario">Vigente</div>
+                      </div>
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tipo Usuario"><i class="bi bi-person-fill-gear"></i></div>
+                          <div id="NombreCuerpoUsuario">Administrador</div>
+                      </div>
+                  </div>
+              </div>
+              <div id="CuerpoBotonesUsuario">
+                  <a id="BotonCuerpo1" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Editar</a>
+                  <a id="BotonCuerpo2" class="btn btn-secondary" ><i class="bi bi-file-earmark-pdf-fill"></i> Rechazar</a>
+              </div>
+                
+          </div>
+        </div>
+
+        <div id="TarjetaMuestraUsuario" class="card border-secondary mb-3">
+          <div id="TituloMuestraUsuario" class="card-header">
+              <div id="NombradosMuestraUsuario">
+                  <h4 id="NombreMuestraUsuario">TorresCarlNG</h4>
+                  <div id="TipoUsuarioMuestraUsuario"><p>Administrador</p></div>
+              </div>
+              <div id="ParteImagenMuestraUsuario">
+                  <div id="RedondeadoImagenMuestraUsuario">
+                      <img width="60" height="60" src="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2021/09/mejor-aplicacion-fondos-pantalla-animados-llegaria-android-dentro-poco-2482649.jpg?tf=3840x" />
+                  </div>
+              </div>
+          </div>
+          <div id="CuerpoMuestraUsuario" class="card-body text-secondary">
+               
+              <div id="CuerpoContenidoUsuario">
+                  <div id="CuerpoParte1">
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre Usuario"><i class="bi bi-person-circle"></i></div>
+                          <div id="NombreCuerpoUsuario">Mario Oscar</div>
+                      </div>
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Correo Electronico"><i class="bi bi-envelope-fill"></i></div>
+                          <div id="NombreCuerpoUsuario"><div id="Holas"><div>marioherzvlov&Theta;.gmail.com</div></div></div>
+                      </div>
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Celular"><i class="bi bi-telephone-fill"></i></div>
+                          <div id="NombreCuerpoUsuario">7567-9876</div>
+                      </div>
+                  </div>
+                  <div id="CuerpoParte2">
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="DUI"><i class="bi bi-person-vcard-fill"></i></div>
+                          <div id="NombreCuerpoUsuario">0-75679876</div>
+                      </div>
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Estado Usuario"><i class="bi bi-person-fill-exclamation"></i></div>
+                          <div id="NombreCuerpoUsuario">Vigente</div>
+                      </div>
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tipo Usuario"><i class="bi bi-person-fill-gear"></i></div>
+                          <div id="NombreCuerpoUsuario">Administrador</div>
+                      </div>
+                  </div>
+              </div>
+              <div id="CuerpoBotonesUsuario">
+                  <a id="BotonCuerpo1" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Editar</a>
+                  <a id="BotonCuerpo2" class="btn btn-secondary" ><i class="bi bi-file-earmark-pdf-fill"></i> Rechazar</a>
+              </div>
+                
+          </div>
+        </div>
+
+        <div id="TarjetaMuestraUsuario" class="card border-secondary mb-3">
+          <div id="TituloMuestraUsuario" class="card-header">
+              <div id="NombradosMuestraUsuario">
+                  <h4 id="NombreMuestraUsuario">FerMterMYT</h4>
+                  <div id="TipoUsuarioMuestraUsuario"><p>Administrador</p></div>
+              </div>
+              <div id="ParteImagenMuestraUsuario">
+                  <div id="RedondeadoImagenMuestraUsuario">
+                      <img width="60" height="60" src="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2021/09/mejor-aplicacion-fondos-pantalla-animados-llegaria-android-dentro-poco-2482649.jpg?tf=3840x" />
+                  </div>
+              </div>
+          </div>
+          <div id="CuerpoMuestraUsuario" class="card-body text-secondary">
+               
+              <div id="CuerpoContenidoUsuario">
+                  <div id="CuerpoParte1">
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre Usuario"><i class="bi bi-person-circle"></i></div>
+                          <div id="NombreCuerpoUsuario">Mario Oscar</div>
+                      </div>
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Correo Electronico"><i class="bi bi-envelope-fill"></i></div>
+                          <div id="NombreCuerpoUsuario"><div id="Holas"><div>marioherzvlov&Theta;.gmail.com</div></div></div>
+                      </div>
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Celular"><i class="bi bi-telephone-fill"></i></div>
+                          <div id="NombreCuerpoUsuario">7567-9876</div>
+                      </div>
+                  </div>
+                  <div id="CuerpoParte2">
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="DUI"><i class="bi bi-person-vcard-fill"></i></div>
+                          <div id="NombreCuerpoUsuario">0-75679876</div>
+                      </div>
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Estado Usuario"><i class="bi bi-person-fill-exclamation"></i></div>
+                          <div id="NombreCuerpoUsuario">Vigente</div>
+                      </div>
+                      <div id="UlCuerpoUsuario">
+                          <div id="IconoCuerpoUsuario" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tipo Usuario"><i class="bi bi-person-fill-gear"></i></div>
+                          <div id="NombreCuerpoUsuario">Administrador</div>
+                      </div>
+                  </div>
+              </div>
+              <div id="CuerpoBotonesUsuario">
+                  <a id="BotonCuerpo1" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Editar</a>
+                  <a id="BotonCuerpo2" class="btn btn-secondary" ><i class="bi bi-file-earmark-pdf-fill"></i> Rechazar</a>
+              </div>
+                
+          </div>
+        </div>
+
+    </div>
+
+  </div>
+
