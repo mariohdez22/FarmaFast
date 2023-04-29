@@ -526,7 +526,7 @@
     #NombradosMuestraDatos
     {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         padding-top: 9px;
         margin-left: 10px;
     }
@@ -558,7 +558,12 @@
 {
     #TarjetaMuestraDatos
     {
-        height: 295px;
+        height: 56vh;
+    }
+
+    #NombradosMuestraDatos
+    {
+        margin-top: 6px;
     }
 
     #Boton1ContenidoMuestraDatos 
@@ -631,6 +636,22 @@
     #ContenedorMuestraDatos::-webkit-scrollbar-thumb 
     {
         display: none;
+    }
+
+    #TarjetaMuestraDatos
+    {
+        height: 56vh;
+    }
+
+    #NombradosMuestraDatos
+    {
+        margin-top: 6px;
+        margin-left: -2px;
+    }
+
+    #TituloMuestraDatos
+    {
+        font-size: 20px;
     }
 
     #ConfiguracionCorreo 

@@ -225,6 +225,13 @@
     color: #353535;
 }
 
+#BotonesContenidoMuestraDatos
+{
+    display: flex;
+    justify-content: center;
+    /*background-color: aquamarine;*/
+}
+
 #Boton1ContenidoMuestraDatos 
 {
     border-radius: 50px;
@@ -233,8 +240,8 @@
     border: 0px;
     font-family: 'Raleway', sans-serif;
     transition: 0.5s;
-    padding-left: 2.2vw;
-    padding-right: 2.2vw;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
     color: #353535;
 }
 
@@ -252,7 +259,6 @@
     border: 0px;
     font-family: 'Raleway', sans-serif;
     transition: 0.5s;
-    margin-left: -0.5vw;
     color: #353535;
     padding-left: 1.5vw;
     padding-right: 1.5vw;
@@ -261,6 +267,24 @@
 #Boton2ContenidoMuestraDatos:hover 
 {
     background-color: #E74444;
+    color: white;
+}
+
+#Boton3ContenidoMuestraDatos 
+{
+    border-radius: 50px;
+    background-color: #E8E8E8;
+    border: 0px;
+    font-family: 'Raleway', sans-serif;
+    transition: 0.5s;
+    color: #353535;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+}
+
+#Boton3ContenidoMuestraDatos:hover 
+{
+    background-color: #44FFD5;
     color: white;
 }
 
@@ -528,14 +552,9 @@
 /* aqui empieza tamaño movil y tablet*/
 @media screen and (max-width: 725px) 
 {
-    #Boton1ContenidoMuestraDatos 
+    #TarjetaMuestraDatos 
     {
-        width: 47.3% !important;
-    }
-
-    #Boton2ContenidoMuestraDatos 
-    {
-        width: 47.3% !important;
+        height: 240px;
     }
 }
 
@@ -543,18 +562,25 @@
 {
     #TarjetaMuestraDatos
     {
-        height: 295px;
+        height: 240px;
     }
 
-    #Boton1ContenidoMuestraDatos {
-        width: 100% !important;
-        margin-bottom: 15px;
+    #Boton1ContenidoMuestraDatos 
+    {
+        padding-left: 4vw;
+        padding-right: 4vw;
     }
 
     #Boton2ContenidoMuestraDatos 
     {
-        width: 100% !important;
-        margin-left: 0.5px;
+        padding-left: 4vw;
+        padding-right: 4vw;
+    }
+
+    #Boton3ContenidoMuestraDatos 
+    {
+        padding-left: 4vw;
+        padding-right: 4vw;
     }
 }
 
