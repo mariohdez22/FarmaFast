@@ -11,8 +11,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 //configuracion para la cadena de conexion
-//builder.Services.AddDbContext<FarmaFastContext>(op =>
-//op.UseSqlServer(builder.Configuration.GetConnectionString("QuerySql")));
+builder.Services.AddDbContext<FarmaFastContext>(op =>
+op.UseSqlServer(builder.Configuration.GetConnectionString("QuerySql")));
 
 builder.Services.AddControllers(
     options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
