@@ -20,5 +20,10 @@ namespace FarmaFast.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public IActionResult AgregarProductos()
+        {
+            return View();
+        }
     }
 }
