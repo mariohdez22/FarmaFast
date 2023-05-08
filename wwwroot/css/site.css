@@ -237,6 +237,29 @@ body {
     background-color: #7A40D8;
 }
 
+#liveToast 
+{
+    border-radius: 10px !important;
+    border: 0px !important;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px !important;
+}
+
+#headerNoti 
+{
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    border: 0px !important;
+    background: linear-gradient(25deg, #6CAAFF, #8165FF)
+}
+
+#headerNotiUpdate
+{
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    border: 0px !important;
+    background: linear-gradient(25deg, #EBCA58, #F18D5E)
+}
+
 /*-------------------------------------------------*/
 @media screen and (max-width: 1250px) {
     /* boton del menu barra roja para espaciar*/

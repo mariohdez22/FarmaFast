@@ -1,0 +1,152 @@
+﻿@model FarmaFast.Models.ViewModels.UsuarioVM
+@{
+    ViewData["Title"] = "AgregarUsuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Estilos
+{
+    <link rel="stylesheet" href="~/css/VistaIngreso/agregarUsuario.css" asp-append-version="true" />
+}
+
+<div class="row g-2">
+
+    <form asp-action="AgregarUsuario" asp-controller="Usuarios" method="post">
+
+        <input type="hidden" class="form-control" asp-for="obUsuario.Idusuario" id="Id" aria-describedby="IDs"> 
+
+        <div class="col-12">
+      
+            <div id="FranjaMenuAgregar" class="row" style="margin-left: 0px; margin-right: 0px;">
+
+                <div id="PXMenuAgregar" class="col-12" style="padding-left: 0px; padding-right: 0px; display: flex;">
+                    <div class="">
+                        @if (Model.obUsuario.Idusuario == 0)
+                        {
+                            <h1 id="TituloMenuAgregar">Agregar Usuarios</h1>
+                        }
+                        else
+                        {
+                            <h1 id="TituloMenuAgregar">Actualizar Usuarios</h1>
+                        }
+                    </div>
+                    <img id="PatronMenuAgregar" src="/img/FranjaAzulada.png" alt="login-icon" />
+                </div>
+
+                <div class="col-12" style="padding-left: 0px; padding-right: 0px; z-index: 20  !important;">
+                    <div id="ApartadoMenuAgregar" class="rounded-5">
+                        <div id="DisplayApartadoMenuAgregar">
+                            <div id="ApartadoBotonesMenu" class="col-4 p-2"> 
+                                @if (Model.obUsuario.Idusuario == 0)
+                                {
+                                    <button type="submit" id="BotonMenu1" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Agregar Registro</button>
+                                }else
+                                {
+                                    <button type="submit" id="BotonMenu1Update" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Actualizar Registro</button>
+                                }
+                                <a asp-action="Index" asp-controller="Usuarios"id="BotonMenu2" class="btn btn-secondary" ><i class="bi bi-box-arrow-left"></i> Ir a Registros</a>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="ApartadoInputs" class="col-12">
+
+            @if (TempData["Error"] != null)
+            {
+                <div class="alert alert-warning alert-dismissible fade show" role="alert" id="alertaError">
+                    <label id="tituloError"><strong>@TempData["Error"]</strong></label>
+                    <span asp-validation-for="obUsuario.Nombres" id="spanError"></span>
+                    <span asp-validation-for="obUsuario.Correo" id="spanError"></span>
+                    <span asp-validation-for="obUsuario.Celular" id="spanError"></span>
+                    <span asp-validation-for="obUsuario.Dui" id="spanError"></span>
+                    <span asp-validation-for="obUsuario.Contrasena" id="spanError"></span>
+                    <span asp-validation-for="obUsuario.Imagen" id="spanError"></span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close; color: white;"></button>
+                </div>
+            }
+
+            <div id="TarjetaInputs" class="card border-secondary mb-3">
+
+                <div id="ParteInputsA">
+
+                    <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                        <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-person-circle"></i></div>
+                        <input asp-for="obUsuario.Nombres" id="InputMenu" type="text" class="form-control" placeholder="Agregar Nombres">
+                    </div>
+
+                    <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                        <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-envelope-fill"></i></div>
+                        <input asp-for="obUsuario.Correo" id="InputMenu" type="text" class="form-control" placeholder="Agregar Correo">
+                    </div>
+
+                    <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                        <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-telephone-fill"></i></div>
+                        <input asp-for="obUsuario.Celular" id="InputMenu" type="text" class="form-control" placeholder="Agregar Celular">
+                    </div>
+
+                    <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                        <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-person-vcard-fill"></i></div>
+                        <input asp-for="obUsuario.Dui" id="InputMenu" type="text" class="form-control" placeholder="Agregar DUI">
+                    </div>
+
+                </div>
+
+                <div id="ParteInputsB">    
+
+                    <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                        <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-person-fill-exclamation"></i></div>
+                        <select asp-for="obUsuario.IdestadoUsuario" id="InputMenu" class="form-select" asp-items="@Model.listaEstado">
+                            <option value="selected disable">Seleccionar un tipo...</option>
+                        </select>
+                    </div>
+
+                    <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                        <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-person-fill-gear"></i></div>
+                        <select asp-for="obUsuario.IdtipoUsuario" id="InputMenu" class="form-select" asp-items="@Model.listaTipo">
+                            <option value="selected disable">Seleccionar un tipo...</option>
+                        </select>
+                    </div>
+
+                    <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                        <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-shield-lock-fill"></i></div>
+                        <input asp-for="obUsuario.Contrasena" id="InputMenu" type="text" class="form-control" placeholder="Agregar Contraseña">
+                    </div>
+
+                    <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                        <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-image-fill"></i></div>
+                        <input asp-for="obUsuario.Imagen" id="InputMenu" type="text" class="form-control" placeholder="Agregar Imagen">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+@if (TempData["MensajeCrear"] != null)
+{
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div id="headerNoti" class="toast-header bg-info text-white">
+                <i class="bi bi-capsule-pill"></i>
+                <strong class="me-auto">&nbsp;FarmaFast</strong>
+                <small>@DateTime.Now</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                @TempData["MensajeCrear"]
+            </div>
+        </div>
+    </div>
+
+}
+

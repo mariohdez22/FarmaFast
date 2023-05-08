@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewData["Title"] = "AgregarProducto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Estilos
+{
+    <link rel="stylesheet" href="~/css/VistaIngreso/agregarProducto.css" asp-append-version="true" />
+}
+
+<div class="row g-2">
+
+    <div class="col-12">
+      
+        <div id="FranjaMenuAgregar" class="row" style="margin-left: 0px; margin-right: 0px;">
+
+            <div id="PXMenuAgregar" class="col-12" style="padding-left: 0px; padding-right: 0px; display: flex;">
+                <div class="">
+                    <h1 id="TituloMenuAgregar">Agregar Producto</h1>
+                </div>
+                <img id="PatronMenuAgregar" src="/img/FranjaAzulada.png" alt="login-icon" />
+            </div>
+
+            <div class="col-12" style="padding-left: 0px; padding-right: 0px; z-index: 20  !important;">
+                <div id="ApartadoMenuAgregar" class="rounded-5">
+                    <div id="DisplayApartadoMenuAgregar">
+                        <div id="ApartadoBotonesMenu" class="col-4 p-2"> 
+                            <a id="BotonMenu1" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Agregar Registro</a>
+                            <a asp-action="Index" asp-controller="Productos" id="BotonMenu2" class="btn btn-secondary" ><i class="bi bi-box-arrow-left"></i> Ir a Registros</a>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="ApartadoInputs" class="col-12">
+
+        <div id="TarjetaInputs" class="card border-secondary mb-3">
+
+            <div id="ParteInputsA">
+
+                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                    <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-box-seam-fill"></i></div>
+                    <input id="InputMenu" type="text" class="form-control" placeholder="Agregar Nombres">
+                </div>
+
+                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                    <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-currency-exchange"></i></div>
+                    <input id="InputMenu" type="text" class="form-control" placeholder="Agregar Precio">
+                </div>
+
+                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                    <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-check-square-fill"></i></div>
+                    <input id="InputMenu" type="text" class="form-control" placeholder="Agregar Cantidad">
+                </div>
+
+                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                    <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-box-seam-fill"></i></div>
+                    <input id="InputMenu" type="text" class="form-control" placeholder="Agregar Imagen">
+                </div>
+
+            </div>
+
+            <div id="ParteInputsB">    
+
+                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                    <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-bookmark-fill"></i></div>
+                    <input id="InputMenu" type="text" class="form-control" placeholder="Agregar Marca">
+                </div>
+
+                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                    <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-box2-fill"></i></div>
+                    <input id="InputMenu" type="text" class="form-control" placeholder="Agregar Tipo Producto">
+                </div>
+
+                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                    <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-check-circle-fill"></i></div>
+                    <input id="InputMenu" type="text" class="form-control" placeholder="Agregar Estado Producto">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

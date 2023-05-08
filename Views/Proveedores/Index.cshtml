@@ -4,7 +4,7 @@
 }
 @section Estilos
 {
-    <link rel="stylesheet" href="~/css/proveedores.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/VistaMuestra/proveedores.css" asp-append-version="true"/>
 }
 
 <div class="row g-2">
@@ -22,7 +22,7 @@
                 <div id="ApartadoMenuVerde" class="rounded-5">
                     <div id="DisplayApartadoMenuVerde">
                         <div id="ApartadoBotonesMenu" class="col-4 p-2"> 
-                            <a id="BotonMenu1" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Agregar Proveedor</a>
+                            <a asp-action="AgregarProveedor" asp-controller="Proveedores" id="BotonMenu1" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Agregar Proveedor</a>
                             <a id="BotonMenu2" class="btn btn-secondary" ><i class="bi bi-file-earmark-pdf-fill"></i> Generar Reporte</a>
                         </div>    
                         <div id="ApartadoBuscadoMenu" class="col-3 p-2">

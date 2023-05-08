@@ -8,5 +8,17 @@ namespace FarmaFast.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public IActionResult AgregarMarca()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AgregarMarca(int hola)
+        {
+            return View();
+        }
     }
 }
