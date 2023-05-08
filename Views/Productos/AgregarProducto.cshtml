@@ -1,4 +1,4 @@
-﻿
+﻿@model FarmaFast.Models.ViewModels.ProductosVM
 @{
     ViewData["Title"] = "AgregarProducto";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,13 +10,22 @@
 
 <div class="row g-2">
 
-    <div class="col-12">
+    <form asp-action="AgregarProducto" asp-controller="Productos" method="post">
+        <input type="hidden" class="form-control" asp-for="obProducto.Idproducto" id="Id" aria-describedby="IDs">
+        <div class="col-12">
       
         <div id="FranjaMenuAgregar" class="row" style="margin-left: 0px; margin-right: 0px;">
 
             <div id="PXMenuAgregar" class="col-12" style="padding-left: 0px; padding-right: 0px; display: flex;">
                 <div class="">
-                    <h1 id="TituloMenuAgregar">Agregar Producto</h1>
+                        @if (Model.obProducto.Idproducto == 0)
+                        {
+                            <h1 id="TituloMenuAgregar">Agregar Producto</h1>
+                        }
+                        else
+                        {
+                            <h1 id="TituloMenuAgregar">Actualizar Producto</h1>
+                        }
                 </div>
                 <img id="PatronMenuAgregar" src="/img/FranjaAzulada.png" alt="login-icon" />
             </div>
@@ -24,8 +33,15 @@
             <div class="col-12" style="padding-left: 0px; padding-right: 0px; z-index: 20  !important;">
                 <div id="ApartadoMenuAgregar" class="rounded-5">
                     <div id="DisplayApartadoMenuAgregar">
-                        <div id="ApartadoBotonesMenu" class="col-4 p-2"> 
-                            <a id="BotonMenu1" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Agregar Registro</a>
+                        <div id="ApartadoBotonesMenu" class="col-4 p-2">
+                                @if (Model.obProducto.Idproducto == 0)
+                                {
+                                    <button type="submit" id="BotonMenu1" class="btn btn-secondary"><i class="bi bi-plus-circle-fill"></i> Agregar Registro</button>
+                                }
+                                else
+                                {
+                                    <button type="submit" id="BotonMenu1Update" class="btn btn-secondary"><i class="bi bi-plus-circle-fill"></i> Actualizar Registro</button>
+                                }
                             <a asp-action="Index" asp-controller="Productos" id="BotonMenu2" class="btn btn-secondary" ><i class="bi bi-box-arrow-left"></i> Ir a Registros</a>
                         </div>    
                     </div>
@@ -37,6 +53,17 @@
     </div>
 
     <div id="ApartadoInputs" class="col-12">
+            @if (TempData["Error"] != null)
+            {
+                <div class="alert alert-warning alert-dismissible fade show" role="alert" id="alertaError">
+                    <label id="tituloError"><strong>@TempData["Error"]</strong></label>
+                    <span asp-validation-for="obProducto.Nombre" id="spanError"></span>
+                    <span asp-validation-for="obProducto.Precio" id="spanError"></span>
+                    <span asp-validation-for="obProducto.Cantidad" id="spanError"></span>
+                    <span asp-validation-for="obProducto.Imagen" id="spanError"></span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close; color: white;"></button>
+                </div>
+            }
 
         <div id="TarjetaInputs" class="card border-secondary mb-3">
 
@@ -44,22 +71,22 @@
 
                 <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
                     <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-box-seam-fill"></i></div>
-                    <input id="InputMenu" type="text" class="form-control" placeholder="Agregar Nombres">
+                    <input asp-for="obProducto.Nombre" id="InputMenu" type="text" class="form-control" placeholder="Agregar Nombres">
                 </div>
 
                 <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
                     <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-currency-exchange"></i></div>
-                    <input id="InputMenu" type="text" class="form-control" placeholder="Agregar Precio">
+                    <input asp-for="obProducto.Precio" id="InputMenu" type="text" class="form-control" placeholder="Agregar Precio">
                 </div>
 
                 <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
                     <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-check-square-fill"></i></div>
-                    <input id="InputMenu" type="text" class="form-control" placeholder="Agregar Cantidad">
+                    <input asp-for="obProducto.Cantidad" id="InputMenu" type="text" class="form-control" placeholder="Agregar Cantidad">
                 </div>
 
                 <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
                     <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-box-seam-fill"></i></div>
-                    <input id="InputMenu" type="text" class="form-control" placeholder="Agregar Imagen">
+                    <input asp-for="obProducto.Imagen" id="InputMenu" type="text" class="form-control" placeholder="Agregar Imagen">
                 </div>
 
             </div>
@@ -68,17 +95,23 @@
 
                 <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
                     <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-bookmark-fill"></i></div>
-                    <input id="InputMenu" type="text" class="form-control" placeholder="Agregar Marca">
+                    <select asp-for="obProducto.Idmarca" id="InputMenu" class="form-select" asp-items="@Model.listMarca">
+                        <option value="selected disable">Seleccionar una marca...</option>
+                    </select>
                 </div>
 
                 <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
                     <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-box2-fill"></i></div>
-                    <input id="InputMenu" type="text" class="form-control" placeholder="Agregar Tipo Producto">
+                    <select asp-for="obProducto.IdtipoProducto" id="InputMenu" class="form-select" asp-items="@Model.listaTipo">
+                        <option value="selected disable">Seleccionar una marca...</option>
+                    </select>
                 </div>
 
                 <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
                     <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-check-circle-fill"></i></div>
-                    <input id="InputMenu" type="text" class="form-control" placeholder="Agregar Estado Producto">
+                    <select asp-for="obProducto.IdestadoProducto" id="InputMenu" class="form-select" asp-items="@Model.listaEstado">
+                        <option value="selected disable">Seleccionar una marca...</option>
+                    </select>
                 </div>
 
             </div>
@@ -86,5 +119,23 @@
         </div>
 
     </div>
-
+    </form>
 </div>
+@if (TempData["MensajeCrear"] != null)
+{
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div id="headerNoti" class="toast-header bg-info text-white">
+                <i class="bi bi-capsule-pill"></i>
+                <strong class="me-auto">&nbsp;FarmaFast</strong>
+                <small>@DateTime.Now</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                @TempData["MensajeCrear"]
+            </div>
+        </div>
+    </div>
+
+}
