@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<FarmaFast.Models.Proveedor>
+@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -22,7 +23,7 @@
                 <div id="ApartadoMenuVerde" class="rounded-5">
                     <div id="DisplayApartadoMenuVerde">
                         <div id="ApartadoBotonesMenu" class="col-4 p-2"> 
-                            <a asp-action="AgregarProveedor" asp-controller="Proveedores" id="BotonMenu1" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Agregar Proveedor</a>
+                            <a asp-action="AgregarProveedor" asp-controller="Proveedores" asp-route-idproveedor="0" id="BotonMenu1" class="btn btn-secondary"><i class="bi bi-plus-circle-fill"></i> Agregar Proveedor</a>
                             <a id="BotonMenu2" class="btn btn-secondary" ><i class="bi bi-file-earmark-pdf-fill"></i> Generar Reporte</a>
                         </div>    
                         <div id="ApartadoBuscadoMenu" class="col-3 p-2">
@@ -40,344 +41,74 @@
 
       <div id="ContenedorMuestraDatos" class="col-12">
 
-          <div id="TarjetaMuestraDatos" class="card border-secondary mb-3">
+        @foreach (var item in Model)
+        {
+            <div id="TarjetaMuestraDatos" class="card border-secondary mb-3">
 
-              <div id="EncabezadoMuestraDatos" class="card-header">
-                  <div id="NombradosMuestraDatos">
-                      <h4 id="TituloMuestraDatos">Alonso Herrera</h4>
-                  </div>
-              </div>
+                <div id="EncabezadoMuestraDatos" class="card-header">
+                    <div id="NombradosMuestraDatos">
+                        <h4 id="TituloMuestraDatos">@item.Nombre</h4>
+                    </div>
+                </div>
 
-              <div id="CuerpoMuestraDatos" class="card-body text-secondary">
-               
-                  <div id="ContenidoMuestraDatos">
-                      <div id="ContenidoParte1MuestraDatos">
+                <div id="CuerpoMuestraDatos" class="card-body text-secondary">
 
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Correo Electronico"><i class="bi bi-envelope-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos"><div id="ConfiguracionCorreo"><div>marioherzvlov&Theta;.gmail.com</div></div></div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="DUI"><i class="bi bi-person-vcard-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">0-98675487</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Celular"><i class="bi bi-telephone-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">7232-3456</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Estado Proveedor"><i class="bi bi-person-fill-exclamation"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Vigente</div>
-                          </div>
+                    <div id="ContenidoMuestraDatos">
+                        <div id="ContenidoParte1MuestraDatos">
 
-                      </div>
-                  </div>
+                            <div id="EncajeContenidoMuestraDatos">
+                                <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Correo Electronico"><i class="bi bi-envelope-fill"></i></div>
+                                <div id="NombreContenidoMuestraDatos"><div id="ConfiguracionCorreo"><div>@item.Correo</div></div></div>
+                            </div>
+                            <div id="EncajeContenidoMuestraDatos">
+                                <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="DUI"><i class="bi bi-person-vcard-fill"></i></div>
+                                <div id="NombreContenidoMuestraDatos">@item.Dui</div>
+                            </div>
+                            <div id="EncajeContenidoMuestraDatos">
+                                <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Celular"><i class="bi bi-telephone-fill"></i></div>
+                                <div id="NombreContenidoMuestraDatos">@item.Celular</div>
+                            </div>
+                            <div id="EncajeContenidoMuestraDatos">
+                                <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Estado Proveedor"><i class="bi bi-person-fill-exclamation"></i></div>
+                                <div id="NombreContenidoMuestraDatos">@item.IdestadoProveedorNavigation.EstadoProveedor1</div>
+                            </div>
 
-                  <div id="BotonesContenidoMuestraDatos">
-                      <a id="Boton1ContenidoMuestraDatos" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Editar</a>
-                      <a id="Boton2ContenidoMuestraDatos" class="btn btn-secondary" ><i class="bi bi-file-earmark-pdf-fill"></i> Rechazar</a>                   
-                  </div>
-                
-              </div>
+                        </div>
+                    </div>
 
-          </div>
+                    <div id="BotonesContenidoMuestraDatos">
+                        <a asp-action="AgregarProveedor" asp-controller="Proveedores" asp-route-idproveedor="@item.Idproveedor" id="Boton1ContenidoMuestraDatos" class="btn btn-secondary"><i class="bi bi-plus-circle-fill"></i> Editar</a>
+                        <a id="Boton2ContenidoMuestraDatos" class="btn btn-secondary"><i class="bi bi-file-earmark-pdf-fill"></i> Rechazar</a>
+                    </div>
 
-          <div id="TarjetaMuestraDatos" class="card border-secondary mb-3">
+                </div>
 
-              <div id="EncabezadoMuestraDatos" class="card-header">
-                  <div id="NombradosMuestraDatos">
-                      <h4 id="TituloMuestraDatos">Alonso Herrera</h4>
-                  </div>
-              </div>
+            </div>
+           
 
-              <div id="CuerpoMuestraDatos" class="card-body text-secondary">
-               
-                  <div id="ContenidoMuestraDatos">
-                      <div id="ContenidoParte1MuestraDatos">
+        }
 
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Correo Electronico"><i class="bi bi-envelope-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos"><div id="ConfiguracionCorreo"><div>marioherzvlov&Theta;.gmail.com</div></div></div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="DUI"><i class="bi bi-person-vcard-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">0-98675487</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Celular"><i class="bi bi-telephone-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">7232-3456</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Estado Proveedor"><i class="bi bi-person-fill-exclamation"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Vigente</div>
-                          </div>
+    </div>
 
-                      </div>
-                  </div>
+</div>
 
-                  <div id="BotonesContenidoMuestraDatos">
-                      <a id="Boton1ContenidoMuestraDatos" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Editar</a>
-                      <a id="Boton2ContenidoMuestraDatos" class="btn btn-secondary" ><i class="bi bi-file-earmark-pdf-fill"></i> Rechazar</a>                   
-                  </div>
-                
-              </div>
+@if (TempData["MensajeActualizar"] != null)
+{
 
-          </div>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div id="headerNotiUpdate" class="toast-header bg-info text-white">
+                <i class="bi bi-capsule-pill"></i>
+                <strong class="me-auto">&nbsp;FarmaFast</strong>
+                <small>@DateTime.Now</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                @TempData["MensajeActualizar"]
+            </div>
+        </div>
+    </div>
+}
 
-          <div id="TarjetaMuestraDatos" class="card border-secondary mb-3">
-
-              <div id="EncabezadoMuestraDatos" class="card-header">
-                  <div id="NombradosMuestraDatos">
-                      <h4 id="TituloMuestraDatos">Alonso Herrera</h4>
-                  </div>
-              </div>
-
-              <div id="CuerpoMuestraDatos" class="card-body text-secondary">
-               
-                  <div id="ContenidoMuestraDatos">
-                      <div id="ContenidoParte1MuestraDatos">
-
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Correo Electronico"><i class="bi bi-envelope-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos"><div id="ConfiguracionCorreo"><div>marioherzvlov&Theta;.gmail.com</div></div></div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="DUI"><i class="bi bi-person-vcard-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">0-98675487</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Celular"><i class="bi bi-telephone-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">7232-3456</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Estado Proveedor"><i class="bi bi-person-fill-exclamation"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Vigente</div>
-                          </div>
-
-                      </div>
-                  </div>
-
-                  <div id="BotonesContenidoMuestraDatos">
-                      <a id="Boton1ContenidoMuestraDatos" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Editar</a>
-                      <a id="Boton2ContenidoMuestraDatos" class="btn btn-secondary" ><i class="bi bi-file-earmark-pdf-fill"></i> Rechazar</a>                   
-                  </div>
-                
-              </div>
-
-          </div>
-
-          <div id="TarjetaMuestraDatos" class="card border-secondary mb-3">
-
-              <div id="EncabezadoMuestraDatos" class="card-header">
-                  <div id="NombradosMuestraDatos">
-                      <h4 id="TituloMuestraDatos">Alonso Herrera</h4>
-                  </div>
-              </div>
-
-              <div id="CuerpoMuestraDatos" class="card-body text-secondary">
-               
-                  <div id="ContenidoMuestraDatos">
-                      <div id="ContenidoParte1MuestraDatos">
-
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Correo Electronico"><i class="bi bi-envelope-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos"><div id="ConfiguracionCorreo"><div>marioherzvlov&Theta;.gmail.com</div></div></div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="DUI"><i class="bi bi-person-vcard-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">0-98675487</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Celular"><i class="bi bi-telephone-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">7232-3456</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Estado Proveedor"><i class="bi bi-person-fill-exclamation"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Vigente</div>
-                          </div>
-
-                      </div>
-                  </div>
-
-                  <div id="BotonesContenidoMuestraDatos">
-                      <a id="Boton1ContenidoMuestraDatos" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Editar</a>
-                      <a id="Boton2ContenidoMuestraDatos" class="btn btn-secondary" ><i class="bi bi-file-earmark-pdf-fill"></i> Rechazar</a>                   
-                  </div>
-                
-              </div>
-
-          </div>
-
-          <div id="TarjetaMuestraDatos" class="card border-secondary mb-3">
-
-              <div id="EncabezadoMuestraDatos" class="card-header">
-                  <div id="NombradosMuestraDatos">
-                      <h4 id="TituloMuestraDatos">Alonso Herrera</h4>
-                  </div>
-              </div>
-
-              <div id="CuerpoMuestraDatos" class="card-body text-secondary">
-               
-                  <div id="ContenidoMuestraDatos">
-                      <div id="ContenidoParte1MuestraDatos">
-
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Correo Electronico"><i class="bi bi-envelope-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos"><div id="ConfiguracionCorreo"><div>marioherzvlov&Theta;.gmail.com</div></div></div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="DUI"><i class="bi bi-person-vcard-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">0-98675487</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Celular"><i class="bi bi-telephone-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">7232-3456</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Estado Proveedor"><i class="bi bi-person-fill-exclamation"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Vigente</div>
-                          </div>
-
-                      </div>
-                  </div>
-
-                  <div id="BotonesContenidoMuestraDatos">
-                      <a id="Boton1ContenidoMuestraDatos" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Editar</a>
-                      <a id="Boton2ContenidoMuestraDatos" class="btn btn-secondary" ><i class="bi bi-file-earmark-pdf-fill"></i> Rechazar</a>                   
-                  </div>
-                
-              </div>
-
-          </div>
-
-          <div id="TarjetaMuestraDatos" class="card border-secondary mb-3">
-
-              <div id="EncabezadoMuestraDatos" class="card-header">
-                  <div id="NombradosMuestraDatos">
-                      <h4 id="TituloMuestraDatos">Alonso Herrera</h4>
-                  </div>
-              </div>
-
-              <div id="CuerpoMuestraDatos" class="card-body text-secondary">
-               
-                  <div id="ContenidoMuestraDatos">
-                      <div id="ContenidoParte1MuestraDatos">
-
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Correo Electronico"><i class="bi bi-envelope-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos"><div id="ConfiguracionCorreo"><div>marioherzvlov&Theta;.gmail.com</div></div></div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="DUI"><i class="bi bi-person-vcard-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">0-98675487</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Celular"><i class="bi bi-telephone-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">7232-3456</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Estado Proveedor"><i class="bi bi-person-fill-exclamation"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Vigente</div>
-                          </div>
-
-                      </div>
-                  </div>
-
-                  <div id="BotonesContenidoMuestraDatos">
-                      <a id="Boton1ContenidoMuestraDatos" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Editar</a>
-                      <a id="Boton2ContenidoMuestraDatos" class="btn btn-secondary" ><i class="bi bi-file-earmark-pdf-fill"></i> Rechazar</a>                   
-                  </div>
-                
-              </div>
-
-          </div>
-
-          <div id="TarjetaMuestraDatos" class="card border-secondary mb-3">
-
-              <div id="EncabezadoMuestraDatos" class="card-header">
-                  <div id="NombradosMuestraDatos">
-                      <h4 id="TituloMuestraDatos">Alonso Herrera</h4>
-                  </div>
-              </div>
-
-              <div id="CuerpoMuestraDatos" class="card-body text-secondary">
-               
-                  <div id="ContenidoMuestraDatos">
-                      <div id="ContenidoParte1MuestraDatos">
-
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Correo Electronico"><i class="bi bi-envelope-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos"><div id="ConfiguracionCorreo"><div>marioherzvlov&Theta;.gmail.com</div></div></div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="DUI"><i class="bi bi-person-vcard-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">0-98675487</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Celular"><i class="bi bi-telephone-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">7232-3456</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Estado Proveedor"><i class="bi bi-person-fill-exclamation"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Vigente</div>
-                          </div>
-
-                      </div>
-                  </div>
-
-                  <div id="BotonesContenidoMuestraDatos">
-                      <a id="Boton1ContenidoMuestraDatos" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Editar</a>
-                      <a id="Boton2ContenidoMuestraDatos" class="btn btn-secondary" ><i class="bi bi-file-earmark-pdf-fill"></i> Rechazar</a>                   
-                  </div>
-                
-              </div>
-
-          </div>
-
-          <div id="TarjetaMuestraDatos" class="card border-secondary mb-3">
-
-              <div id="EncabezadoMuestraDatos" class="card-header">
-                  <div id="NombradosMuestraDatos">
-                      <h4 id="TituloMuestraDatos">Alonso Herrera</h4>
-                  </div>
-              </div>
-
-              <div id="CuerpoMuestraDatos" class="card-body text-secondary">
-               
-                  <div id="ContenidoMuestraDatos">
-                      <div id="ContenidoParte1MuestraDatos">
-
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Correo Electronico"><i class="bi bi-envelope-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos"><div id="ConfiguracionCorreo"><div>marioherzvlov&Theta;.gmail.com</div></div></div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="DUI"><i class="bi bi-person-vcard-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">0-98675487</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Celular"><i class="bi bi-telephone-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">7232-3456</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Estado Proveedor"><i class="bi bi-person-fill-exclamation"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Vigente</div>
-                          </div>
-
-                      </div>
-                  </div>
-
-                  <div id="BotonesContenidoMuestraDatos">
-                      <a id="Boton1ContenidoMuestraDatos" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Editar</a>
-                      <a id="Boton2ContenidoMuestraDatos" class="btn btn-secondary" ><i class="bi bi-file-earmark-pdf-fill"></i> Rechazar</a>                   
-                  </div>
-                
-              </div>
-
-          </div>
-
-      </div>
-
-  </div>
 
 

@@ -73,7 +73,20 @@
 {
     box-shadow: rgb(255, 82, 82) 3px 3px 6px 0px inset, rgba(255, 110, 110, 0.5) -3px -3px 6px 1px inset;
 }
+#BotonMenu1Update 
+{
+    border-radius: 50px;
+    margin-right: 15px;
+    background-color: #DFB75F;
+    border: 0px;
+    font-family: 'Raleway', sans-serif;
+    transition: 0.5s;
+}
 
+#BotonMenu1Update:hover
+{
+    box-shadow: rgb(205, 159, 61) 3px 3px 6px 0px inset, rgba(218, 178, 93, 0.5) -3px -3px 6px 1px inset;
+}
 #InputMenu
 {
     border-top-right-radius: 20px;
@@ -142,6 +155,28 @@
 #ApartadoInputs::-webkit-scrollbar-track 
 {
     border-radius: 10px;
+}
+/* apartado de notificacion de error @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+#alertaError {
+    border: 0px;
+    border-radius: 15px;
+    background-color: #FF9E91;
+}
+
+#tituloError {
+    color: white;
+    font-family: 'Raleway', sans-serif;
+}
+
+#spanError {
+    background-color: white;
+    color: #EE4A4A;
+    margin-left: 10px;
+    padding: 7px;
+    border-radius: 20px;
+    font-family: 'Raleway', sans-serif;
+    border: 1px solid #FF4343;
 }
 
 /* tarjeta contenedora de inputs @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
