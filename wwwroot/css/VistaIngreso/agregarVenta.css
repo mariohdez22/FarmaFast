@@ -1,0 +1,461 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap');
+
+/*-----------------------------------------------------------------------------------------------------------*/
+/*MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM MENU AZUL MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM*/
+/*-----------------------------------------------------------------------------------------------------------*/
+
+#FranjaMenuAgregar 
+{
+    background: linear-gradient(6deg, #B8BFF3, #C1FAF8) !important;
+    overflow: hidden;
+    position: relative;
+    border-radius: 27px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 6px, rgba(0, 0, 0, 0.23) 2px -1px 6px;
+}
+
+#TituloMenuAgregar 
+{
+    font-family: 'Raleway', sans-serif;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-bottom: 50px;
+    color: #353535;
+}
+
+#PatronMenuAgregar
+{
+    position: absolute;
+    transform: translate(65%, -25%) rotate(-20deg);
+    z-index: 1 !important;
+    height: 60vh;
+    width: 65vw;
+}
+
+#ApartadoMenuAgregar
+{
+    background-color: rgb(255, 255, 255, 0.65);
+    border: 1px solid #CFCFCF;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+#ApartadoBotonesMenu
+{
+    /*background-color: aquamarine;*/
+    width: 50vw;
+    display: flex;
+}
+
+#BotonMenu1 
+{
+    border-radius: 50px;
+    margin-right: 15px;
+    background-color: #8BD284;
+    border: 0px;
+    font-family: 'Raleway', sans-serif;
+    transition: 0.5s;
+}
+
+#BotonMenu1:hover
+{
+    box-shadow: rgb(106, 180, 99) 3px 3px 6px 0px inset, rgba(115, 191, 107, 0.5) -3px -3px 6px 1px inset;
+}
+
+#BotonMenu1Update 
+{
+    border-radius: 50px;
+    margin-right: 15px;
+    background-color: #DFB75F;
+    border: 0px;
+    font-family: 'Raleway', sans-serif;
+    transition: 0.5s;
+}
+
+#BotonMenu1Update:hover
+{
+    box-shadow: rgb(205, 159, 61) 3px 3px 6px 0px inset, rgba(218, 178, 93, 0.5) -3px -3px 6px 1px inset;
+}
+
+#BotonMenu2 
+{
+    border-radius: 50px;
+    background-color: #FF7272;
+    border: 0px;
+    font-family: 'Raleway', sans-serif;
+    transition: 0.5s;
+}
+
+#BotonMenu2:hover 
+{
+    box-shadow: rgb(255, 82, 82) 3px 3px 6px 0px inset, rgba(255, 110, 110, 0.5) -3px -3px 6px 1px inset;
+}
+
+#InputMenu
+{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    outline: none;
+    border-right: 1px solid #CFCFCF;
+    border-top: 1px solid #CFCFCF;
+    border-bottom: 1px solid #CFCFCF;
+}
+
+#InputMenu:focus
+{
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+#InputIconoMenu 
+{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: #DDFBFD;
+    border-left: 1px solid #CFCFCF;
+    border-top: 1px solid #CFCFCF;
+    border-bottom: 1px solid #CFCFCF;
+}
+
+/*-----------------------------------------------------------------------------------------------------------*/
+/*MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM APARTADO INPUTS MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM*/
+/*-----------------------------------------------------------------------------------------------------------*/
+
+/* cajon principal @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+#ApartadoInputs
+{
+    /*overflow-y: scroll;*/
+    padding-top: 10px;
+    /*background-color: aquamarine;*/
+    height: 68vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#ApartadoInputs::-webkit-scrollbar 
+{
+    -webkit-appearance: none;
+}
+
+#ApartadoInputs::-webkit-scrollbar:vertical 
+{
+    width: 10px;
+}
+
+#ApartadoInputs::-webkit-scrollbar-button:increment, #scroll::-webkit-scrollbar-button 
+{
+    display: none;
+}
+
+#ApartadoInputs::-webkit-scrollbar:horizontal 
+{
+    height: 10px;
+}
+
+#ApartadoInputs::-webkit-scrollbar-thumb 
+{
+    background-color: #DFDFDF;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+#ApartadoInputs::-webkit-scrollbar-track 
+{
+    border-radius: 10px;
+}
+
+/* tarjeta contenedora de inputs @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+#TarjetaInputs
+{
+    margin-top: 10px;
+    margin-right: 20px;
+    width: 680px; 
+    border-radius: 27px;
+    box-shadow: rgba(9, 30, 66, 0.25) 2px 4px 8px -2px, rgba(9, 30, 66, 0.08) -2px -2px 2px 1px;
+    border: 0px;
+    display: flex;
+    flex-direction: row;
+
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-right: 15px;
+}
+
+#ParteInputsA
+{
+    margin-right: 15px;
+    flex-grow: 1;
+}
+
+#ParteInputsB
+{
+    flex-grow: 1;
+}
+
+#GrupoInput
+{
+    margin-bottom: 40px !important;
+}
+
+#InputMenu 
+{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    outline: none;
+    border-right: 1px solid #BDBDBD;
+    border-top: 1px solid #BDBDBD;
+    border-bottom: 1px solid #BDBDBD;
+}
+
+#InputMenu:focus
+{
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+#InputIconoMenu 
+{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: #8989F8;
+    border-left: 1px solid #8989F8;
+    border-top: 1px solid #8989F8;
+    border-bottom: 1px solid #8989F8;
+    color: white;
+}
+
+/*tarjeta contenedora del buscador @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+#TarjetaBuscar 
+{
+    margin-top: 10px;
+    margin-right: 20px;
+    width: 680px;
+    border-radius: 27px;
+    box-shadow: rgba(9, 30, 66, 0.25) 2px 4px 8px -2px, rgba(9, 30, 66, 0.08) -2px -2px 2px 1px;
+    border: 0px;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+
+#apartadoBuscador1
+{
+    display:  flex;
+    flex-direction: row;
+}
+
+#apartadoBuscador2
+{
+    /*background-color: aqua;*/
+    height: 30vh;
+}
+
+#BotonBuscar1 
+{
+    border-radius: 50px;
+    background-color: #B0B0B0;
+    border: 0px;
+    font-family: 'Raleway', sans-serif;
+    transition: 0.5s;
+    margin-left: 10px;
+}
+
+#BotonBuscar1:hover 
+{
+    box-shadow: rgb(149, 149, 149) 3px 3px 6px 0px inset, rgba(164, 164, 164, 0.5) -3px -3px 6px 1px inset;
+}
+
+#BotonBuscar2
+{
+    border-radius: 50px;
+    background-color: #B0B0B0;
+    border: 0px;
+    font-family: 'Raleway', sans-serif;
+    transition: 0.5s;
+    margin-left: 15px;
+}
+
+#BotonBuscar2:hover 
+{
+    box-shadow: rgb(149, 149, 149) 3px 3px 6px 0px inset, rgba(164, 164, 164, 0.5) -3px -3px 6px 1px inset;
+}
+
+#TarjetaBusqueda
+{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(25deg, #8181EF, #DB8FE0);
+    border-radius: 27px;
+    border: 0px;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-right: 15px;
+}
+
+/*tarjeta contenedora del detalle de la venta @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+#TarjetaDetalle
+{
+    margin-top: 10px;
+    margin-right: 20px;
+    width: 680px;
+    border-radius: 27px;
+    box-shadow: rgba(9, 30, 66, 0.25) 2px 4px 8px -2px, rgba(9, 30, 66, 0.08) -2px -2px 2px 1px;
+    border: 0px;
+}
+
+#HeaderDetalle 
+{
+    border-radius: 50px;
+    background: linear-gradient(25deg, #7B68EE, #87CEEB) !important;
+    border: 0px;
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+    padding-bottom: 6px !important;
+}
+
+#nombradoDetalle
+{
+    background-color: #FFFFFF;
+    height: 25px;
+    padding-left: 46px;
+    padding-right: 46px;
+    border-radius: 20px;
+    border: 1px solid #A9A9A9;
+    font-family: 'Raleway', sans-serif;
+    margin-top: 4px;
+    margin-bottom: 5px;
+    margin-left: -3px;
+    margin-right: 15px;
+}
+
+#ParteDatosDetalle 
+{
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+
+#DatosDetalle
+{
+    border-radius: 50px;
+    background: #D8D8D8;
+    border: 0px;
+    display: flex;
+    height: auto;
+    padding-bottom: 6px !important;
+}
+
+#CampoDetalleTitulo
+{
+    background-color: #FFFFFF;
+    height: 25px;
+    width: 110vw;
+    border-radius: 20px;
+    border: 1px solid #A9A9A9;
+    font-family: 'Raleway', sans-serif;
+    margin-top: 4px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+}
+
+#CampoDetalle
+{
+    background-color: #FFFFFF;
+    height: 25px;
+    border-radius: 20px;
+    border: 1px solid #A9A9A9;
+    font-family: 'Raleway', sans-serif;
+    margin-top: 4px;
+    padding-left: 42px;
+    padding-right: 42px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+}
+
+#BtnEliminarDetalle 
+{
+    background-color: #FF5F5F;
+    border-radius: 20px;
+    font-family: 'Raleway', sans-serif;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    color: white;
+}
+
+/*-----------------------------------------------------------------------------------------------------------*/
+/*MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM APARTADO RESPONSIVE MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM*/
+/*-----------------------------------------------------------------------------------------------------------*/
+@media screen and (max-width: 880px) {
+    #TarjetaInputs
+    {
+        width: auto;
+    }
+
+    #PXMenuAgregar
+    {
+        flex-direction: column;
+    }
+
+    #TituloMenuAgregar 
+    {
+        text-align: center !important;
+    }
+
+    #PatronMenuAgregar 
+    {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 602px) 
+{
+    #ApartadoBotonesMenu
+    {
+        width: 60vw;
+    }
+}
+
+@media screen and (max-width: 502px) 
+{
+    #ApartadoInputs
+    {
+        overflow-y: scroll;
+    }
+
+    #ApartadoBotonesMenu
+    {
+        width: auto;
+        flex-direction: column;
+    }
+
+    #BotonMenu1
+    {
+        width: auto;
+        margin-right: 0px;
+        margin-bottom: 6px;
+    }
+
+    #BotonMenu1 
+    {
+        width: auto;
+    }
+
+    #TarjetaInputs 
+    {
+        margin-bottom: 50px !important;
+        flex-direction: column;
+    }
+
+    #ParteInputsA
+    {
+        margin-right: 0px;
+    }
+
+}
