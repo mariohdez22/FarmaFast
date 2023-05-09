@@ -1,0 +1,169 @@
+﻿
+@{
+    ViewData["Title"] = "GenerarVenta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Estilos
+{
+    <link rel="stylesheet" href="~/css/VistaIngreso/agregarVenta.css" asp-append-version="true" />
+}
+
+<div class="row g-2">
+
+    <div class="col-12">
+      
+            <div id="FranjaMenuAgregar" class="row" style="margin-left: 0px; margin-right: 0px;">
+
+                <div id="PXMenuAgregar" class="col-12" style="padding-left: 0px; padding-right: 0px; display: flex;">
+                    <div class="">
+
+                        <h1 id="TituloMenuAgregar">Generacion de Ventas</h1>
+
+                    </div>
+                    <img id="PatronMenuAgregar" src="/img/FranjaAzulada.png" alt="login-icon" />
+                </div>
+
+                <div class="col-12" style="padding-left: 0px; padding-right: 0px; z-index: 20  !important;">
+                    <div id="ApartadoMenuAgregar" class="rounded-5">
+                        <div id="DisplayApartadoMenuAgregar">
+                            <div id="ApartadoBotonesMenu" class="col-4 p-2"> 
+                                <button type="submit" id="BotonMenu1" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Registrar Venta</button>
+                                <a asp-action="IndexVenta" asp-controller="Ventas" id="BotonMenu2" class="btn btn-secondary" ><i class="bi bi-box-arrow-left"></i> Ir a Registros</a>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+    </div>
+
+    <div id="ApartadoInputs" class="col-12">
+
+        <div id="TarjetaInputs" class="card border-secondary mb-3">
+
+            <div id="ParteInputsA">
+
+                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                    <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-7-circle-fill"></i></div>
+                    <input id="InputMenu" type="text" class="form-control" placeholder="Codigo Venta">
+                </div>
+
+                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                    <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-person-circle"></i></div>
+                    <input id="InputMenu" type="text" class="form-control" placeholder="Usuario">
+                </div>
+
+            </div>
+
+            <div id="ParteInputsB">    
+
+                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                    <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-person-square"></i></div>
+                    <input id="InputMenu" type="text" class="form-control" placeholder="Agregar Cliente">
+                </div>
+
+                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                    <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-calendar-week-fill"></i></div>
+                    <input id="InputMenu" type="text" class="form-control" placeholder="Fecha">
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="TarjetaInputs" class="card border-secondary mb-3">
+
+            <div id="ParteInputsA">
+
+                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                    <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-7-circle-fill"></i></div>
+                    <input id="InputMenu" type="text" class="form-control" placeholder="Codigo Venta">
+                </div>
+
+                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                    <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-person-circle"></i></div>
+                    <input id="InputMenu" type="text" class="form-control" placeholder="Usuario">
+                </div>
+
+            </div>
+
+            <div id="ParteInputsB">    
+
+                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                    <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-person-square"></i></div>
+                    <input id="InputMenu" type="text" class="form-control" placeholder="Agregar Cliente">
+                </div>
+
+                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                    <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-calendar-week-fill"></i></div>
+                    <input id="InputMenu" type="text" class="form-control" placeholder="Fecha">
+                </div>
+
+            </div>
+
+        </div>
+
+        @*-----------------------------------------------------------------------------------------------------*@
+
+        <div id="TarjetaBuscar" class="card border-secondary mb-3">
+
+            <div id="apartadoBuscador1">
+
+                <div id="ParteInputsA">
+
+                    <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                        <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-7-circle-fill"></i></div>
+                        <input id="InputMenu" type="text" class="form-control" placeholder="Buscar Producto">
+                    </div>
+
+                </div>
+
+                <div id="ParteInputsB">    
+
+                    <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                        <a id="BotonBuscar1" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Agregar Producto</a>
+                        <a asp-action="IndexVenta" asp-controller="Ventas" id="BotonBuscar2" class="btn btn-secondary" ><i class="bi bi-box-arrow-left"></i> Limpiar Busquedas</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="apartadoBuscador2">
+
+                <div id="TarjetaBusqueda" class="card border-secondary mb-3">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="TarjetaDetalle" class="card border-secondary mb-3">
+
+            <div id="HeaderDetalle" class="card-header">
+                <div id="nombradoDetalle"><p>Producto</p></div>
+                <div id="nombradoDetalle"><p>Precio</p></div>
+                <div id="nombradoDetalle"><p>Cantidad</p></div>
+                <div id="nombradoDetalle"><p>Subtotal</p></div>
+            </div>
+
+            <div id="ParteDatosDetalle">
+
+                <div id="DatosDetalle" class="card-header">
+                    <div id="CampoDetalleTitulo"><p>Viro - Grip</p></div>
+                    <div id="CampoDetalle"><p>5.00</p></div>
+                    <div id="CampoDetalle"><p>50.00</p></div>
+                    <div id="CampoDetalle"><p>250.00</p></div>
+                    <div id="BtnEliminarDetalle"><i class="bi bi-x-circle-fill"></i></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
