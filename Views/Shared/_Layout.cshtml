@@ -12,19 +12,46 @@
     @await RenderSectionAsync("Estilos", required: false)
 </head>
 <body>
+
     <section class="contenedor">
 
         <span>
             <button id="botonMenu" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="bi bi-list"></i></button>
-            <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Usuarios" ><i class="bi bi-person-badge-fill"></i></a>
-            <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Marcas"><i class="bi bi-building-fill"></i></a>
-            <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Proveedores"><i class="bi bi-person-square"></i></a>
-            <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Productos"><i class="bi bi-box-seam-fill"></i></a>
-            <a id="linksMenu" class="btn btn-secondary" asp-action="GenerarVenta" asp-controller="Ventas"><i class="bi bi-tags-fill"></i></a>
-            <a id="linksMenu" class="btn btn-secondary" ><i class="bi bi-clipboard2-data-fill"></i></a>
+            <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Home" ><i class="bi bi-house-fill"></i></a>
+
+            @if (User.IsInRole("Administrador"))
+            {
+                <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Usuarios" ><i class="bi bi-person-badge-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Marcas"><i class="bi bi-building-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Proveedores"><i class="bi bi-person-square"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Productos"><i class="bi bi-box-seam-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="GenerarVenta" asp-controller="Ventas"><i class="bi bi-tags-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexVenta" asp-controller="Ventas"><i class="bi bi-clipboard2-data-fill"></i></a>
+            }
+            else if (User.IsInRole("Gerente"))
+            {
+                <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Usuarios" ><i class="bi bi-person-badge-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Marcas"><i class="bi bi-building-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Proveedores"><i class="bi bi-person-square"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Productos"><i class="bi bi-box-seam-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="GenerarVenta" asp-controller="Ventas"><i class="bi bi-tags-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexVenta" asp-controller="Ventas"><i class="bi bi-clipboard2-data-fill"></i></a>
+            }
+            else if (User.IsInRole("Vendedor"))
+            {
+                <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Productos"><i class="bi bi-box-seam-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="GenerarVenta" asp-controller="Ventas"><i class="bi bi-tags-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexVenta" asp-controller="Ventas"><i class="bi bi-clipboard2-data-fill"></i></a>
+            }
+            else if (User.IsInRole("Colocador"))
+            {
+                <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Marcas"><i class="bi bi-building-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Proveedores"><i class="bi bi-person-square"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Productos"><i class="bi bi-box-seam-fill"></i></a>
+            }
 
             <a id="linksMenuFinal" class="btn btn-secondary" ><i class="bi bi-person-circle"></i></a>
-            <a id="linksMenu" class="btn btn-secondary" ><i class="bi bi-escape"></i></a>
+            <a asp-controller="Home" asp-action="CerrarSesion" id="linksMenu" class="btn btn-secondary" ><i class="bi bi-escape"></i></a>
         </span>
 
         <!-- Menu Oculto (disponible en formato movil) -->
@@ -46,16 +73,42 @@
       </div>   
       <div class="offcanvas-body">
         <ul>
-            <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Usuarios" class="btn btn-secondary" >Gestion Usuarios</a></li>
-            <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Marcas" class="btn btn-secondary" >Gestion Marcas</a></li>
-            <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Proveedores" class="btn btn-secondary" >Gestion Proveedor</a></li>
-            <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Productos" class="btn btn-secondary" >Gestion Productos</a></li>
-            <li id="animacionMenu"><a id="linksNombres" asp-action="GenerarVenta" asp-controller="Ventas" class="btn btn-secondary" >Generacion Ventas</a></li>
-            <li id="animacionMenu"><a id="linksNombres" class="btn btn-secondary" >Gestion Ventas</a></li>
+            <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Home" class="btn btn-secondary" >Inicio FarmaFast</a></li>
+
+            @if (User.IsInRole("Administrador"))
+            {
+                <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Usuarios" class="btn btn-secondary" >Gestion Usuarios</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Marcas" class="btn btn-secondary" >Gestion Marcas</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Proveedores" class="btn btn-secondary" >Gestion Proveedor</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Productos" class="btn btn-secondary" >Gestion Productos</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="GenerarVenta" asp-controller="Ventas" class="btn btn-secondary" >Generacion Ventas</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexVenta" asp-controller="Ventas" class="btn btn-secondary" >Gestion Ventas</a></li>
+            }
+            else if (User.IsInRole("Gerente"))
+            {
+                <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Usuarios" class="btn btn-secondary" >Gestion Usuarios</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Marcas" class="btn btn-secondary" >Gestion Marcas</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Proveedores" class="btn btn-secondary" >Gestion Proveedor</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Productos" class="btn btn-secondary" >Gestion Productos</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="GenerarVenta" asp-controller="Ventas" class="btn btn-secondary" >Generacion Ventas</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexVenta" asp-controller="Ventas" class="btn btn-secondary" >Gestion Ventas</a></li>
+            }
+            else if (User.IsInRole("Vendedor"))
+            {
+                <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Productos" class="btn btn-secondary" >Gestion Productos</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="GenerarVenta" asp-controller="Ventas" class="btn btn-secondary" >Generacion Ventas</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexVenta" asp-controller="Ventas" class="btn btn-secondary" >Gestion Ventas</a></li>
+            }
+            else if (User.IsInRole("Colocador"))
+            {
+                <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Marcas" class="btn btn-secondary" >Gestion Marcas</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Proveedores" class="btn btn-secondary" >Gestion Proveedor</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Productos" class="btn btn-secondary" >Gestion Productos</a></li>
+            }           
         </ul>
         <ul id="espacio-off">
             <li id="animacionMenu"><a id="linksNombres" class="btn btn-secondary" >Perfil Usuario</a></li>
-            <li id="animacionMenu"><a id="linksNombres" class="btn btn-secondary" >Cerrar Sesion</a></li>
+            <li id="animacionMenu"><a asp-controller="Home" asp-action="CerrarSesion" id="linksNombres" class="btn btn-secondary" >Cerrar Sesion</a></li>
         </ul>
       </div>
     </div>
@@ -68,16 +121,41 @@
       <div class="offcanvas-body">
           
         <ul>
-            <li id="animacionMenuB"><a id="linksNombresB" asp-action="Index" asp-controller="Usuarios" class="btn btn-secondary" ><i class="bi bi-person-badge-fill"></i> Gestion Usuarios</a></li>
-            <li id="animacionMenuB"><a id="linksNombresB" asp-action="Index" asp-controller="Marcas" class="btn btn-secondary" ><i class="bi bi-building-fill"></i> Gestion Marcas</a></li>
-            <li id="animacionMenuB"><a id="linksNombresB" asp-action="Index" asp-controller="Proveedores" class="btn btn-secondary" ><i class="bi bi-person-square"></i> Gestion Proveedor</a></li>
-            <li id="animacionMenuB"><a id="linksNombresB" asp-action="Index" asp-controller="Productos" class="btn btn -secondary" ><i class="bi bi-box-seam-fill"></i> Gestion Productos</a></li>
-            <li id="animacionMenuB"><a id="linksNombresB" asp-action="GenerarVenta" asp-controller="Ventas" class="btn btn-secondary" ><i class="bi bi-tags-fill"></i> Generacion Ventas</a></li>
-            <li id="animacionMenuB"><a id="linksNombresB" class="btn btn-secondary" ><i class="bi bi-clipboard2-data-fill"></i> Gestion Ventas</a></li>
+            @if (User.IsInRole("Administrador"))
+            {
+                <li id="animacionMenuB"><a id="linksNombresB" asp-action="Index" asp-controller="Usuarios" class="btn btn-secondary" ><i class="bi bi-person-badge-fill"></i> Gestion Usuarios</a></li>
+                <li id="animacionMenuB"><a id="linksNombresB" asp-action="Index" asp-controller="Marcas" class="btn btn-secondary" ><i class="bi bi-building-fill"></i> Gestion Marcas</a></li>
+                <li id="animacionMenuB"><a id="linksNombresB" asp-action="Index" asp-controller="Proveedores" class="btn btn-secondary" ><i class="bi bi-person-square"></i> Gestion Proveedor</a></li>
+                <li id="animacionMenuB"><a id="linksNombresB" asp-action="Index" asp-controller="Productos" class="btn btn -secondary" ><i class="bi bi-box-seam-fill"></i> Gestion Productos</a></li>
+                <li id="animacionMenuB"><a id="linksNombresB" asp-action="GenerarVenta" asp-controller="Ventas" class="btn btn-secondary" ><i class="bi bi-tags-fill"></i> Generacion Ventas</a></li>
+                <li id="animacionMenuB"><a id="linksNombresB" asp-action="IndexVenta" asp-controller="Ventas" class="btn btn-secondary" ><i class="bi bi-clipboard2-data-fill"></i> Gestion Ventas</a></li>
+            }
+            else if (User.IsInRole("Gerente"))
+            {
+                <li id="animacionMenuB"><a id="linksNombresB" asp-action="Index" asp-controller="Usuarios" class="btn btn-secondary" ><i class="bi bi-person-badge-fill"></i> Gestion Usuarios</a></li>
+                <li id="animacionMenuB"><a id="linksNombresB" asp-action="Index" asp-controller="Marcas" class="btn btn-secondary" ><i class="bi bi-building-fill"></i> Gestion Marcas</a></li>
+                <li id="animacionMenuB"><a id="linksNombresB" asp-action="Index" asp-controller="Proveedores" class="btn btn-secondary" ><i class="bi bi-person-square"></i> Gestion Proveedor</a></li>
+                <li id="animacionMenuB"><a id="linksNombresB" asp-action="Index" asp-controller="Productos" class="btn btn -secondary" ><i class="bi bi-box-seam-fill"></i> Gestion Productos</a></li>
+                <li id="animacionMenuB"><a id="linksNombresB" asp-action="GenerarVenta" asp-controller="Ventas" class="btn btn-secondary" ><i class="bi bi-tags-fill"></i> Generacion Ventas</a></li>
+                <li id="animacionMenuB"><a id="linksNombresB" asp-action="IndexVenta" asp-controller="Ventas" class="btn btn-secondary" ><i class="bi bi-clipboard2-data-fill"></i> Gestion Ventas</a></li>
+            }
+            else if (User.IsInRole("Vendedor"))
+            {
+                <li id="animacionMenuB"><a id="linksNombresB" asp-action="Index" asp-controller="Productos" class="btn btn -secondary" ><i class="bi bi-box-seam-fill"></i> Gestion Productos</a></li>
+                <li id="animacionMenuB"><a id="linksNombresB" asp-action="GenerarVenta" asp-controller="Ventas" class="btn btn-secondary" ><i class="bi bi-tags-fill"></i> Generacion Ventas</a></li>
+                <li id="animacionMenuB"><a id="linksNombresB" asp-action="IndexVenta" asp-controller="Ventas" class="btn btn-secondary" ><i class="bi bi-clipboard2-data-fill"></i> Gestion Ventas</a></li>
+            }
+            else if (User.IsInRole("Colocador"))
+            {
+                <li id="animacionMenuB"><a id="linksNombresB" asp-action="Index" asp-controller="Marcas" class="btn btn-secondary" ><i class="bi bi-building-fill"></i> Gestion Marcas</a></li>
+                <li id="animacionMenuB"><a id="linksNombresB" asp-action="Index" asp-controller="Proveedores" class="btn btn-secondary" ><i class="bi bi-person-square"></i> Gestion Proveedor</a></li>
+                <li id="animacionMenuB"><a id="linksNombresB" asp-action="Index" asp-controller="Productos" class="btn btn -secondary" ><i class="bi bi-box-seam-fill"></i> Gestion Productos</a></li>
+            }
         </ul>
           
       </div>
-    </div>
+    </div>     
+
     <!-- //////////////////////////////////////// -->
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -91,3 +169,22 @@
 {
 
 }
+
+            @*
+            @if (User.IsInRole("Administrador"))
+            {
+
+            }
+            else if (User.IsInRole("Gerente"))
+            {
+
+            }
+            else if (User.IsInRole("Vendedor"))
+            {
+
+            }
+            else if (User.IsInRole("Colocador"))
+            {
+
+            }
+            *@

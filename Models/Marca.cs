@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace FarmaFast.Models;
 
@@ -7,13 +8,17 @@ public partial class Marca
 {
     public int Idmarca { get; set; }
 
+    [Required(ErrorMessage = "Nombre obligatorio")]
     public string Nombre { get; set; } = null!;
 
-    public int Idvigencia { get; set; }
+    [Required]
+    public int? Idvigencia { get; set; }
 
-    public int Idestilo { get; set; }
+    [Required]
+    public int? Idestilo { get; set; }
 
-    public int Idproveedor { get; set; }
+    [Required]
+    public int? Idproveedor { get; set; }
 
     public virtual EstiloProducto IdestiloNavigation { get; set; } = null!;
 

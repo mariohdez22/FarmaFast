@@ -1,4 +1,4 @@
-﻿
+﻿@model FarmaFast.Models.ViewModels.VentasVM
 @{
     ViewData["Title"] = "GenerarVenta";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,113 +8,55 @@
     <link rel="stylesheet" href="~/css/VistaIngreso/agregarVenta.css" asp-append-version="true" />
 }
 
-<div class="row g-2">
+<form asp-action="GenerarVenta" asp-controller="Ventas" method="post">
 
-    <div class="col-12">
+    <div class="row g-2">
+
+        <div class="col-12">
       
-            <div id="FranjaMenuAgregar" class="row" style="margin-left: 0px; margin-right: 0px;">
+                <div id="FranjaMenuAgregar" class="row" style="margin-left: 0px; margin-right: 0px;">
 
-                <div id="PXMenuAgregar" class="col-12" style="padding-left: 0px; padding-right: 0px; display: flex;">
-                    <div class="">
+                    <div id="PXMenuAgregar" class="col-12" style="padding-left: 0px; padding-right: 0px; display: flex;">
+                        <div class="">
 
-                        <h1 id="TituloMenuAgregar">Generacion de Ventas</h1>
+                            <h1 id="TituloMenuAgregar">Generacion de Ventas</h1>
 
+                        </div>
+                        <img id="PatronMenuAgregar" src="/img/FranjaAzulada.png" alt="login-icon" />
                     </div>
-                    <img id="PatronMenuAgregar" src="/img/FranjaAzulada.png" alt="login-icon" />
-                </div>
 
-                <div class="col-12" style="padding-left: 0px; padding-right: 0px; z-index: 20  !important;">
-                    <div id="ApartadoMenuAgregar" class="rounded-5">
-                        <div id="DisplayApartadoMenuAgregar">
-                            <div id="ApartadoBotonesMenu" class="col-4 p-2"> 
-                                <button type="submit" id="BotonMenu1" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Registrar Venta</button>
-                                <a asp-action="IndexVenta" asp-controller="Ventas" id="BotonMenu2" class="btn btn-secondary" ><i class="bi bi-box-arrow-left"></i> Ir a Registros</a>
-                            </div>    
+                    <div class="col-12" style="padding-left: 0px; padding-right: 0px; z-index: 20  !important;">
+                        <div id="ApartadoMenuAgregar" class="rounded-5">
+                            <div id="DisplayApartadoMenuAgregar">
+                                <div id="ApartadoBotonesMenu" class="col-4 p-2"> 
+                                    <button type="submit" id="BotonMenu1" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Registrar Venta</button>
+                                    <a asp-action="IndexVenta" asp-controller="Ventas" id="BotonMenu2" class="btn btn-secondary" ><i class="bi bi-box-arrow-left"></i> Ir a Registros</a>
+                                </div>    
+                            </div>
                         </div>
                     </div>
+
                 </div>
-
-            </div>
-
-    </div>
-
-    <div id="ApartadoInputs" class="col-12">
-
-        <div id="TarjetaInputs" class="card border-secondary mb-3">
-
-            <div id="ParteInputsA">
-
-                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
-                    <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-7-circle-fill"></i></div>
-                    <input id="InputMenu" type="text" class="form-control" placeholder="Codigo Venta">
-                </div>
-
-                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
-                    <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-person-circle"></i></div>
-                    <input id="InputMenu" type="text" class="form-control" placeholder="Usuario">
-                </div>
-
-            </div>
-
-            <div id="ParteInputsB">    
-
-                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
-                    <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-person-square"></i></div>
-                    <input id="InputMenu" type="text" class="form-control" placeholder="Agregar Cliente">
-                </div>
-
-                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
-                    <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-calendar-week-fill"></i></div>
-                    <input id="InputMenu" type="text" class="form-control" placeholder="Fecha">
-                </div>
-
-            </div>
 
         </div>
 
-        <div id="TarjetaInputs" class="card border-secondary mb-3">
+        <div id="ApartadoInputs" class="col-12">
 
-            <div id="ParteInputsA">
+            @*apartado para los inputs de la venta*@
 
-                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
-                    <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-7-circle-fill"></i></div>
-                    <input id="InputMenu" type="text" class="form-control" placeholder="Codigo Venta">
-                </div>
-
-                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
-                    <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-person-circle"></i></div>
-                    <input id="InputMenu" type="text" class="form-control" placeholder="Usuario">
-                </div>
-
-            </div>
-
-            <div id="ParteInputsB">    
-
-                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
-                    <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-person-square"></i></div>
-                    <input id="InputMenu" type="text" class="form-control" placeholder="Agregar Cliente">
-                </div>
-
-                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
-                    <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-calendar-week-fill"></i></div>
-                    <input id="InputMenu" type="text" class="form-control" placeholder="Fecha">
-                </div>
-
-            </div>
-
-        </div>
-
-        @*-----------------------------------------------------------------------------------------------------*@
-
-        <div id="TarjetaBuscar" class="card border-secondary mb-3">
-
-            <div id="apartadoBuscador1">
+            <div id="TarjetaInputs" class="card border-secondary mb-3">
 
                 <div id="ParteInputsA">
 
                     <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
                         <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-7-circle-fill"></i></div>
-                        <input id="InputMenu" type="text" class="form-control" placeholder="Buscar Producto">
+                        <input asp-for="Codigoventa" id="InputMenu" type="text" class="form-control codigoVenta" placeholder="Codigo Venta" readonly>
+                    </div>
+
+                    <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                        <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-person-circle"></i></div>
+                        <input id="InputMenu" type="text" value="@ViewData["nombreUsuario"]" class="form-control" placeholder="Usuario" readonly>
+                        <input asp-for="Idusuario" value="@ViewData["idUsuario"]" id="InputMenu" type="hidden" class="form-control" placeholder="Usuario">
                     </div>
 
                 </div>
@@ -122,41 +64,169 @@
                 <div id="ParteInputsB">    
 
                     <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
-                        <a id="BotonBuscar1" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Agregar Producto</a>
-                        <a asp-action="IndexVenta" asp-controller="Ventas" id="BotonBuscar2" class="btn btn-secondary" ><i class="bi bi-box-arrow-left"></i> Limpiar Busquedas</a>
+                        <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-person-square"></i></div>
+                        <input asp-for="Cliente" id="InputMenu" type="text" class="form-control" placeholder="Agregar Cliente" required>
+                    </div>
+
+                    <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                        <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-calendar-week-fill"></i></div>
+                        <input value="@DateTime.Now" readonly id="InputMenu" type="text" class="form-control" placeholder="Fecha">
                     </div>
 
                 </div>
 
             </div>
 
-            <div id="apartadoBuscador2">
+            @*apartado de inputs para el detalle de la venta*@
 
-                <div id="TarjetaBusqueda" class="card border-secondary mb-3">
+            <div id="TarjetaInputs" class="card border-secondary mb-3">
+
+                <div id="ParteInputsA">
+
+                    <input class="inputId" type="hidden">
+
+                    <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                        <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-box-seam-fill"></i></div>
+                        <input id="InputMenu" class="form-control inputProducto" type="text"  placeholder="Producto" readonly>
+                    </div>
+
+                    <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                        <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-currency-exchange"></i></div>
+                        <input id="InputMenu" class="form-control inputPrecio" type="text"  placeholder="Precio" readonly>
+                    </div>
+
+                </div>
+
+                <div id="ParteInputsB">    
+
+                    <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                        <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-check-square-fill"></i></div>
+                        <input id="InputMenu" class="form-control inputCantidad" type="text"  placeholder="Cantidad">
+                    </div>
+
+                    <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                        <a id="BtnAgregarProductos" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Agregar Producto</a>
+                    </div>
 
                 </div>
 
             </div>
 
-        </div>
+    @*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*@
+        
+            <div id="TarjetaBuscar" class="card border-secondary mb-3">
 
-        <div id="TarjetaDetalle" class="card border-secondary mb-3">
+                <div id="apartadoBuscador1">
 
-            <div id="HeaderDetalle" class="card-header">
-                <div id="nombradoDetalle"><p>Producto</p></div>
-                <div id="nombradoDetalle"><p>Precio</p></div>
-                <div id="nombradoDetalle"><p>Cantidad</p></div>
-                <div id="nombradoDetalle"><p>Subtotal</p></div>
+                    <div id="ParteInputsA">
+
+                        <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                            <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-7-circle-fill"></i></div>
+                            <input id="InputMenu" class="form-control inputBuscar" type="text"  placeholder="Buscar Producto">
+                        </div>
+
+                    </div>
+
+                    <div id="ParteInputsB">    
+
+                        <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                            <a id="BotonBuscar1" onclick="BuscarData()" class="btn btn-secondary" ><i class="bi bi-search"></i> Buscar Producto</a>
+                            <a id="BotonBuscar2" onclick="limpiarCampos()" class="btn btn-secondary" ><i class="bi bi-backspace-fill"></i> Limpiar Busquedas</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="apartadoBuscador2">
+
+                    <div id="TarjetaBusqueda" class="card border-secondary mb-3">
+
+                    @* apartado para el foreach de la busqueda ----------------*@
+
+                        <div id="ScrollDatosBusqueda">
+
+                            <!-- adicion desde javascript (Jquery) -->
+
+                            @*Dato tarjeta para añadir a bucle*@
+
+                            @*<div id="DatoBusqueda"> 
+
+                                <div id="RedondeadoImagenMuestraProducto">
+                                    <img width="30" height="30" src="" />
+                                </div>
+
+                                <div id="EncajeContenidoMuestraDatosBusqueda">
+                                    <div id="IconoContenidoMuestraDatosBusqueda" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Subtotal"><i class="bi bi-box-seam-fill"></i></div>
+                                    <div id="NombreContenidoMuestraDatosBusqueda">Viro - Grip</div>
+                                </div>
+
+                                <div id="EncajeContenidoMuestraDatosBusqueda">
+                                    <div id="IconoContenidoMuestraDatosBusqueda" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Subtotal"><i class="bi bi-currency-exchange"></i></div>
+                                    <div id="NombreContenidoMuestraDatosBusqueda">10.00</div>
+                                </div>
+
+                                <div id="EncajeContenidoMuestraDatosBusqueda">
+                                    <div id="IconoContenidoMuestraDatosBusqueda" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Subtotal"><i class="bi bi-check-square-fill"></i></div>
+                                    <div id="NombreContenidoMuestraDatosBusqueda">500</div>
+                                </div>
+
+                                <a id="BotonAgregarData" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i></a>
+
+                            </div>*@                       
+
+                        </div>
+
+                    @*------------------------------------------------------*@
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div id="ParteDatosDetalle">
+            @*tarjetas para agregar el detalle de la venta*@
 
-                <div id="DatosDetalle" class="card-header">
-                    <div id="CampoDetalleTitulo"><p>Viro - Grip</p></div>
-                    <div id="CampoDetalle"><p>5.00</p></div>
-                    <div id="CampoDetalle"><p>50.00</p></div>
-                    <div id="CampoDetalle"><p>250.00</p></div>
-                    <div id="BtnEliminarDetalle"><i class="bi bi-x-circle-fill"></i></div>
+            <div id="TarjetaDetalle" class="card border-secondary mb-3">
+
+                <div id="HeaderDetalle" class="card-header">
+                    <div id="nombradoDetalle"><p>Producto</p></div>
+                    <div id="nombradoDetalle"><p>Precio</p></div>
+                    <div id="nombradoDetalle"><p>Cantidad</p></div>
+                    <div id="nombradoDetalle"><p>Subtotal</p></div>
+                    <a id="BtnEliminarTodo" onclick="EliminarTodo()"><i class="bi bi-x-diamond-fill"></i></a>
+                </div>
+
+                <div id="ParteDatosDetalle">
+
+                    <div id="ScrollDatosDetalle">
+
+                        @*<div id="DatosDetalle">
+                            <div id="CampoDetalleTitulo"><p>Viro - Grip</p></div>
+                            <div id="CampoDetalle"><p>5.00</p></div>
+                            <div id="CampoDetalle"><p>50.00</p></div>
+                            <div id="CampoDetalle"><p>250.00</p></div>
+                            <a id="BtnEliminarDetalle"><i class="bi bi-x-circle-fill"></i></a>
+                        </div>*@
+
+                    </div>
+
+                </div>
+
+                <div id="FooterDetalle" class="card-footer">
+
+                    <div id="EncajeContenidoMuestraDatos">
+                        <input id="inputSubTotal" asp-for="Subtotal" type="hidden">
+                        <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Subtotal"><i class="bi bi-currency-dollar"></i></div>
+                        <div class="dataSubtotal" id="NombreContenidoMuestraDatos"></div>
+                    </div>
+
+                    <div id="EncajeContenidoMuestraDatos">
+                        <input id="inputTotal" asp-for="Total" type="hidden">
+                        <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Total con IVA"><i class="bi bi-currency-exchange"></i></div>
+                        <div class="dataTotal" id="NombreContenidoMuestraDatos"></div>
+                    </div>
+
                 </div>
 
             </div>
@@ -165,5 +235,138 @@
 
     </div>
 
-</div>
+</form>
+
+@section Scripts
+{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+
+        let BuscarData = () => {
+
+            $.ajax({
+                url: "@Url.Action("buscarProducto", "Ventas")",
+                type: "GET",
+                data: { busqueda: $('.inputBuscar').val() },
+                success: (response) => 
+                {
+                    $.map(response.datos, (val, index) => {
+
+                        $.each(val, (clave, valor) => {
+
+                            console.log(`id: ${valor.idproducto}`);
+                            console.log(`nombre: ${valor.nombre}`);
+                            console.log(`precio: ${(valor.precio).toFixed(2)}`);
+                            console.log(`cantidad: ${valor.cantidad}`);
+                            console.log(`imagen: ${valor.imagen}`);     
+                            
+                            $('#ScrollDatosBusqueda').empty();
+
+                            let $tarjetaDato = $('<div id="DatoBusqueda"></div>');
+                            $tarjetaDato.appendTo('#ScrollDatosBusqueda');
+
+                            // imagen 
+                            //-------------------------------------------------------------------------
+
+                            let $contenedorImagen = $('<div id="RedondeadoImagenMuestraProducto"></div>')
+                            $contenedorImagen.appendTo($tarjetaDato)
+
+                            let $imagen = $(`<img width="30" height="30" src="${valor.imagen}" />`)
+                            $imagen.appendTo($contenedorImagen)
+
+                            //nombre
+                            //-------------------------------------------------------------------------
+
+                            let $contenedorDatoNombres = $('<div id="EncajeContenidoMuestraDatosBusqueda"></div>')
+                            $contenedorDatoNombres.appendTo($tarjetaDato)
+
+                            let $iconoNombres = $(`<div id="IconoContenidoMuestraDatosBusqueda" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre"><i class="bi bi-box-seam-fill"></i></div>`)
+                            $iconoNombres.appendTo($contenedorDatoNombres)
+
+                            let $contenidoNombres = $(`<div id="NombreContenidoMuestraDatosBusqueda">${valor.nombre}</div>`)
+                            $contenidoNombres.appendTo($contenedorDatoNombres)
+
+                            let $hiddenId = $(`<input id="HiddenId" type="hidden" value="${valor.idproducto}">`)
+                            $hiddenId.appendTo($contenedorDatoNombres)
+
+                            //precio
+                            //-------------------------------------------------------------------------
+
+                            let $contenedorDatoPrecio = $('<div id="EncajeContenidoMuestraDatosBusqueda"></div>')
+                            $contenedorDatoPrecio.appendTo($tarjetaDato)
+
+                            let $iconoPrecio = $(`<div id="IconoContenidoMuestraDatosBusqueda" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre"><i class="bi bi-currency-exchange"></i></div>`)
+                            $iconoPrecio.appendTo($contenedorDatoPrecio)
+
+                            let $contenidoPrecio = $(`<div id="NombreContenidoMuestraDatosBusqueda">${(valor.precio).toFixed(2)}</div>`)
+                            $contenidoPrecio.appendTo($contenedorDatoPrecio)
+
+                            let $hiddenNombre = $(`<input id="HiddenNombre" type="hidden" value="${valor.nombre}">`)
+                            $hiddenNombre.appendTo($contenedorDatoPrecio)
+
+                            //cantidad
+                            //-------------------------------------------------------------------------
+
+                            let $contenedorDatoCantidad = $('<div id="EncajeContenidoMuestraDatosBusqueda"></div>')
+                            $contenedorDatoCantidad.appendTo($tarjetaDato)
+
+                            let $iconoCantidad = $(`<div id="IconoContenidoMuestraDatosBusqueda" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre"><i class="bi bi-check-square-fill"></i></div>`)
+                            $iconoCantidad.appendTo($contenedorDatoCantidad)
+
+                            let $contenidoCantidad = $(`<div id="NombreContenidoMuestraDatosBusqueda">${valor.cantidad}</div>`)
+                            $contenidoCantidad.appendTo($contenedorDatoCantidad)
+
+                            let $hiddenPrecio = $(`<input id="HiddenPrecio" type="hidden" value="${valor.precio}">`)
+                            $hiddenPrecio.appendTo($contenedorDatoCantidad)
+
+                            //botones
+                            //-------------------------------------------------------------------------
+
+                            let $agregarData = $('<a onclick="enviarProducto(); return false;" id="BotonAgregarData" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i></a>')
+                            $agregarData.appendTo($tarjetaDato)
+
+                        });
+
+                    });
+                },
+                error: () => 
+                {
+                    console.error("Error al procesar la solicitud.");
+                }
+            });
+        }
+
+        let limpiarCampos = () => 
+        {
+            $('#ScrollDatosBusqueda').empty();
+            $('.inputBuscar').val("");
+            $('.inputBuscar').focus()
+        }
+
+    </script>
+
+    <script src="~/js/VistaIngreso/Ventas.js" asp-append-version="true"></script>
+
+}
+
+@if (TempData["MensajeCrear"] != null)
+{
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div id="headerNoti" class="toast-header bg-info text-white">
+                <i class="bi bi-capsule-pill"></i>
+                <strong class="me-auto">&nbsp;FarmaFast</strong>
+                <small>@DateTime.Now</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                @TempData["MensajeCrear"]
+            </div>
+        </div>
+    </div>
+
+}
+
 

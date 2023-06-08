@@ -103,14 +103,14 @@
                 <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
                     <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-box2-fill"></i></div>
                     <select asp-for="obProducto.IdtipoProducto" id="InputMenu" class="form-select" asp-items="@Model.listaTipo">
-                        <option value="selected disable">Seleccionar una marca...</option>
+                        <option value="selected disable">Seleccionar tipo de producto...</option>
                     </select>
                 </div>
 
                 <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
                     <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-check-circle-fill"></i></div>
                     <select asp-for="obProducto.IdestadoProducto" id="InputMenu" class="form-select" asp-items="@Model.listaEstado">
-                        <option value="selected disable">Seleccionar una marca...</option>
+                        <option value="selected disable">Seleccionar estado de producto...</option>
                     </select>
                 </div>
 

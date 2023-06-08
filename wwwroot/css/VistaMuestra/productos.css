@@ -143,7 +143,7 @@
     margin-top: 10px;
     margin-right: 20px;
     width: 444px; 
-    height: 43.8vh; /* poner como "auto" en responsive*/
+    height: min-content; /* poner como "auto" en responsive*/
     border-radius: 27px;
     box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
     border: 0px;

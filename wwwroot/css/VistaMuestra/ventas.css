@@ -1,0 +1,342 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap');
+
+/*-----------------------------------------------------------------------------------------------------------*/
+/*||||||||||||||||||||||||||||||||||||( ESTILOS DEL MENU AZUL )|||||||||||||||||||||||||||||||||||||||11|||||*/
+/*-----------------------------------------------------------------------------------------------------------*/
+
+#FranjaMenuVerde {
+    background: linear-gradient(6deg, #B8BFF3, #C1FAF8) !important;
+    overflow: hidden;
+    position: relative;
+    border-radius: 27px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 6px, rgba(0, 0, 0, 0.23) 2px -1px 6px;
+}
+
+#TituloMenuVerde {
+    font-family: 'Raleway', sans-serif;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-bottom: 50px;
+    color: #353535;
+}
+
+#PatronMenuVerde {
+    position: absolute;
+    transform: translate(65%, -25%) rotate(-20deg);
+    z-index: 1 !important;
+    height: 60vh;
+    width: 65vw;
+}
+
+#ApartadoMenuVerde {
+    background-color: rgb(255, 255, 255, 0.65);
+    border: 1px solid #CFCFCF;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+#DisplayApartadoMenuVerde {
+    display: flex;
+    justify-content: space-between;
+}
+
+#BotonMenu1 {
+    border-radius: 50px;
+    margin-right: 15px;
+    background-color: #8BD284;
+    border: 0px;
+    font-family: 'Raleway', sans-serif;
+    transition: 0.5s;
+}
+
+    #BotonMenu1:hover {
+        box-shadow: rgb(106, 180, 99) 3px 3px 6px 0px inset, rgba(115, 191, 107, 0.5) -3px -3px 6px 1px inset;
+    }
+
+#BotonMenu2 {
+    border-radius: 50px;
+    background-color: #B0B0B0;
+    border: 0px;
+    font-family: 'Raleway', sans-serif;
+    transition: 0.5s;
+}
+
+    #BotonMenu2:hover {
+        box-shadow: rgb(149, 149, 149) 3px 3px 6px 0px inset, rgba(164, 164, 164, 0.5) -3px -3px 6px 1px inset;
+    }
+
+#InputIconoMenu {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: #DDFBFD;
+    border-left: 1px solid #CFCFCF;
+    border-top: 1px solid #CFCFCF;
+    border-bottom: 1px solid #CFCFCF;
+}
+
+#InputMenu {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    outline: none;
+    border-right: 1px solid #CFCFCF;
+    border-top: 1px solid #CFCFCF;
+    border-bottom: 1px solid #CFCFCF;
+}
+
+    #InputMenu:focus {
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    }
+
+/*-----------------------------------------------------------------------------------------------------------*/
+/*||||||||||||||||||||||||||||||||||||( ESTILOS DE LAS TARJETAS )||||||||||||||||||||||||||||||||||||||||||||*/
+/*-----------------------------------------------------------------------------------------------------------*/
+
+#ContenedorMuestraDatos
+{
+    overflow-y: scroll;
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 60vh;
+}
+
+#ContenedorMuestraDatos::-webkit-scrollbar 
+{
+    -webkit-appearance: none;
+}
+
+#ContenedorMuestraDatos::-webkit-scrollbar:vertical 
+{
+    width: 10px;
+}
+
+#ContenedorMuestraDatos::-webkit-scrollbar-button:increment, #scroll::-webkit-scrollbar-button 
+{
+    display: none;
+}
+
+#ContenedorMuestraDatos::-webkit-scrollbar:horizontal 
+{
+    height: 10px;
+}
+
+#ContenedorMuestraDatos::-webkit-scrollbar-thumb 
+{
+    background-color: #DFDFDF;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+#ContenedorMuestraDatos::-webkit-scrollbar-track 
+{
+    border-radius: 10px;
+}
+
+/*MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM*/
+
+#TarjetaMuestraDatos
+{
+    margin-top: 10px;
+    margin-right: 20px;
+    width: 440px; 
+    height: 390px;
+    border-radius: 27px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    border: 0px;
+}
+
+#EncabezadoMuestraDatos 
+{
+    border-radius: 50px;
+    background: linear-gradient(25deg, #7B68EE, #87CEFA) !important;
+    border: 0px;
+    justify-content: space-between;
+    height: auto;
+    padding-bottom: 6px !important;
+}
+
+#NombradosMuestraDatos
+{
+    padding-top: 6px;
+    text-align: center;
+}
+
+#TituloMuestraDatos {
+    font-family: 'Raleway', sans-serif;
+    color: white;
+}
+
+/*MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM*/
+
+#ContenidoMuestraDatos
+{
+    display: flex;
+    flex-direction: row;
+}
+
+#ContenidoParte1MuestraDatos
+{
+    flex-grow: 1;
+}
+
+#ContenidoParte2MuestraDatos
+{
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+#EncajeContenidoMuestraDatos 
+{
+    display: flex;
+    flex-direction: row;
+    padding-left: 0px !important;
+    margin-bottom: 15px;
+}
+
+#IconoContenidoMuestraDatos
+{
+    background: #DADADA;
+    color: #353535;
+    padding: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 5vh;
+}
+
+#NombreContenidoMuestraDatos 
+{
+    background: #ECECEC;
+    padding: 4px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100%;
+    color: #353535;
+}
+
+/*MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM*/
+
+#ContenidoMuestraDatos2
+{
+    /*background-color: lightgray;*/
+    width: 100%;
+    height: 15.5vh;
+    margin-bottom: 2vh;
+    overflow-y: scroll;
+    padding-right: 5px;
+}
+
+#ContenidoMuestraDatos2::-webkit-scrollbar 
+{
+    -webkit-appearance: none;
+}
+
+#ContenidoMuestraDatos2::-webkit-scrollbar:vertical 
+{
+    width: 10px;
+}
+
+#ContenidoMuestraDatos2::-webkit-scrollbar-button:increment, #scroll::-webkit-scrollbar-button 
+{
+    display: none;
+}
+
+#ContenidoMuestraDatos2::-webkit-scrollbar:horizontal 
+{
+    height: 10px;
+}
+
+#ContenidoMuestraDatos2::-webkit-scrollbar-thumb 
+{
+    background-color: #DFDFDF;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+#ContenidoMuestraDatos2::-webkit-scrollbar-track 
+{
+    border-radius: 10px;
+}
+
+#TarjetaDatosDetalle
+{
+    background-color: white;
+    border: 1px solid #C1C1C1; 
+    border-radius: 15px;
+    width: 100%;
+    display: flex;
+    padding: 12px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+}
+
+#ContenidoParte1MuestraDetalle
+{
+    flex-grow: 1;
+}
+
+#ContenidoParte2MuestraDetalle
+{
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+#espacioDetalle
+{
+    margin-bottom: 15px;
+}
+
+#EncajeContenidoMuestraDetalle {
+    display: flex;
+    flex-direction: row;
+    padding-left: 0px !important;
+}
+
+#IconoContenidoMuestraDetalle
+{
+    background: #DADADA;
+    color: #353535;
+    padding: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 5vh;
+}
+
+#NombreContenidoMuestraDetalle
+{
+    background: #ECECEC;
+    padding: 4px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100%;
+    color: #353535;
+}
+
+/*MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM*/
+#BotonesContenidoMuestraDatos {
+    display: flex;
+    justify-content: left;
+    /*background-color: aquamarine;*/
+}
+
+#Boton1ContenidoMuestraDatos 
+{
+    border-radius: 50px;
+    margin-right: 15px;
+    background-color: #E8E8E8;
+    border: 0px;
+    font-family: 'Raleway', sans-serif;
+    transition: 0.5s;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+    color: #353535;
+}
+
+#Boton1ContenidoMuestraDatos:hover 
+{
+    background-color: #46D8E9;
+    color: white;
+}

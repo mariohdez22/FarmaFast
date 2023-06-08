@@ -14,10 +14,26 @@ namespace FarmaFast.Controllers
         {
             _baseDatos = baseDatos;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string buscar)
         {
-            var proveedores = await _baseDatos.Proveedors.Include(eu => eu.IdestadoProveedorNavigation)
-                                                    .ToListAsync();
+            var proveedores = await _baseDatos.Proveedors
+                              .Include(eu => eu.IdestadoProveedorNavigation)
+                              .OrderByDescending(d => d.Idproveedor)
+                              .ToListAsync();
+
+            if (!String.IsNullOrEmpty(buscar))
+            {
+                proveedores = await _baseDatos.Proveedors.Where(
+
+                    b => b.Nombre!.Contains(buscar) ||
+                         b.Correo!.Contains(buscar) ||
+                         b.Dui!.Contains(buscar) ||
+                         b.Celular!.Contains(buscar) ||
+                         b.IdestadoProveedorNavigation.EstadoProveedor1!.Contains(buscar)
+
+                    ).ToListAsync();
+            }
+
             return View(proveedores);
         }
 

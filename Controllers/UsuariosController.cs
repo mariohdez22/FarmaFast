@@ -1,5 +1,6 @@
 ﻿using FarmaFast.Models;
 using FarmaFast.Models.ViewModels;
+using FarmaFast.Recursos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -16,11 +17,27 @@ namespace FarmaFast.Controllers
             _baseDatos = baseDatos;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string buscar)
         {
-            var usuarios = await _baseDatos.Usuarios.Include(eu => eu.IdestadoUsuarioNavigation)
-                                                    .Include(tu => tu.IdtipoUsuarioNavigation)
-                                                    .ToListAsync();
+            var usuarios = await _baseDatos.Usuarios
+                           .Include(eu => eu.IdestadoUsuarioNavigation)
+                           .Include(tu => tu.IdtipoUsuarioNavigation)
+                           .OrderByDescending(d => d.Idusuario)
+                           .ToListAsync();
+
+            if (!String.IsNullOrEmpty(buscar))
+            {
+                usuarios = await _baseDatos.Usuarios.Where(
+
+                    b => b.Nombres!.Contains(buscar) ||
+                         b.Dui!.Contains(buscar) ||
+                         b.Correo!.Contains(buscar) ||
+                         b.Celular!.Contains(buscar) ||
+                         b.IdestadoUsuarioNavigation.EstadoUsuario1!.Contains(buscar) ||
+                         b.IdtipoUsuarioNavigation.TipoUsuario1!.Contains(buscar)
+
+                    ).ToListAsync();
+            }
 
             return View(usuarios);
         }
@@ -62,6 +79,7 @@ namespace FarmaFast.Controllers
             {
                 if (usuario.obUsuario.Idusuario == 0)
                 {
+                    usuario.obUsuario.Contrasena = Utilidades.EncriptarClave(usuario.obUsuario.Contrasena);
                     _baseDatos.Usuarios.Add(usuario.obUsuario);
                     await _baseDatos.SaveChangesAsync();
                     TempData["MensajeCrear"] = "El usuario se agrego correctamente";
@@ -69,6 +87,7 @@ namespace FarmaFast.Controllers
                 }
                 else
                 {
+                    usuario.obUsuario.Contrasena = Utilidades.EncriptarClave(usuario.obUsuario.Contrasena);
                     _baseDatos.Usuarios.Update(usuario.obUsuario);
                     await _baseDatos.SaveChangesAsync();
                     TempData["MensajeActualizar"] = "El usuario se actualizo correctamente";

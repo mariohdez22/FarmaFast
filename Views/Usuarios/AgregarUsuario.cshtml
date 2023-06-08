@@ -9,7 +9,7 @@
 }
 
 <div class="row g-2">
-
+        
     <form asp-action="AgregarUsuario" asp-controller="Usuarios" method="post">
 
         <input type="hidden" class="form-control" asp-for="obUsuario.Idusuario" id="Id" aria-describedby="IDs"> 
@@ -113,7 +113,7 @@
 
                     <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
                         <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-shield-lock-fill"></i></div>
-                        <input asp-for="obUsuario.Contrasena" id="InputMenu" type="text" class="form-control" placeholder="Agregar Contraseña">
+                        <input asp-for="obUsuario.Contrasena" id="InputMenu" type="password" class="form-control" placeholder="Agregar Contraseña">
                     </div>
 
                     <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">

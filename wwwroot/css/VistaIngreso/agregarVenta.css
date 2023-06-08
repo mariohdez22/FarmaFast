@@ -250,51 +250,190 @@
     height: 30vh;
 }
 
+#BtnAgregarProductos
+{
+    border-radius: 50px;
+    background-color: #EFEFEF;
+    border: 1px solid #B9B9B9;
+    font-family: 'Raleway', sans-serif;
+    transition: 0.5s;
+    width: 100% !important;
+    color: #5B5B5B;
+}
+
+#BtnAgregarProductos:hover 
+{
+    background-color: #B9FFC7;
+}
+
+
 #BotonBuscar1 
 {
     border-radius: 50px;
-    background-color: #B0B0B0;
-    border: 0px;
+    background-color: #EFEFEF;
+    border: 1px solid #B9B9B9;
     font-family: 'Raleway', sans-serif;
     transition: 0.5s;
-    margin-left: 10px;
+    color: #5B5B5B;
 }
 
 #BotonBuscar1:hover 
 {
-    box-shadow: rgb(149, 149, 149) 3px 3px 6px 0px inset, rgba(164, 164, 164, 0.5) -3px -3px 6px 1px inset;
+    background-color: #B9FFC7;
 }
 
 #BotonBuscar2
 {
     border-radius: 50px;
-    background-color: #B0B0B0;
-    border: 0px;
+    background-color: #EFEFEF;
+    border: 1px solid #B9B9B9;
     font-family: 'Raleway', sans-serif;
     transition: 0.5s;
+    color: #5B5B5B;
     margin-left: 15px;
 }
 
 #BotonBuscar2:hover 
 {
-    box-shadow: rgb(149, 149, 149) 3px 3px 6px 0px inset, rgba(164, 164, 164, 0.5) -3px -3px 6px 1px inset;
+    background-color: #B9FFF7;
 }
 
 #TarjetaBusqueda
 {
     width: 100%;
     height: 100%;
-    background: linear-gradient(25deg, #8181EF, #DB8FE0);
+    background-color: #EAEAEA;
     border-radius: 27px;
     border: 0px;
     padding-left: 15px;
     padding-top: 15px;
     padding-right: 15px;
+    border: 1px solid #D0D0D0 !important;
+}
+
+#DatoBusqueda
+{
+    width: 100%;
+    height: 6vh;
+    padding: 5px;
+    background-color: white;
+    border-radius: 25px;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 12px;
+    border: 1px solid #BEBEBE !important;
+}
+
+/* Inicio de Apartado de Scroll @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+#ScrollDatosBusqueda
+{
+  /*background-color: aquamarine;*/
+  width: 100%;
+  height: 26vh;
+  overflow-y: scroll;
+}
+
+#ScrollDatosBusqueda::-webkit-scrollbar 
+{
+    -webkit-appearance: none;
+}
+
+#ScrollDatosBusqueda::-webkit-scrollbar:vertical 
+{
+    width: 10px;
+}
+
+#ScrollDatosBusqueda::-webkit-scrollbar-button:increment, #scroll::-webkit-scrollbar-button 
+{
+    display: none;
+}
+
+#ScrollDatosBusqueda::-webkit-scrollbar:horizontal 
+{
+    height: 10px;
+}
+
+#ScrollDatosBusqueda::-webkit-scrollbar-thumb 
+{
+    background-color: #DFDFDF;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+#ScrollDatosBusqueda::-webkit-scrollbar-track 
+{
+    border-radius: 10px;
+}
+
+/* Fin de Apartado de Scroll @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+#RedondeadoImagenMuestraProducto
+{
+    overflow: hidden;
+    width: 33px;
+    height: 33px;
+    margin-left: 2px;
+    margin-right: 15px;
+    border-radius: 30px;
+    border: 2px solid #BFBFBF;
+}
+
+#EncajeContenidoMuestraDatosBusqueda 
+{
+    display: flex;
+    flex-direction: row;
+    padding-left: 0px !important;
+    margin-right: 15px;
+    width: 10vw;
+}
+
+#IconoContenidoMuestraDatosBusqueda
+{
+    background: #CBCBCB;
+    color: white;
+    padding: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    width: 5vh;
+}
+
+#NombreContenidoMuestraDatosBusqueda 
+{
+    background: #ECECEC;
+    padding: 4px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    width: 100%;
+    color: #353535;
+    text-align: center;
+    overflow: hidden;
+}
+
+#BotonAgregarData 
+{
+    border-radius: 50px;
+    background: #CBCBCB;
+    border: 0px;
+    font-family: 'Raleway', sans-serif;
+    transition: 0.5s;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 9px;
+    padding-right: 9px;
+    margin-left: 18px !important;
+}
+
+#BotonAgregarData:hover
+{
+    box-shadow: rgb(158, 158, 158) 3px 3px 6px 0px inset, rgba(164, 164, 164 , 0.5) -3px -3px 6px 1px inset;
 }
 
 /*tarjeta contenedora del detalle de la venta @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 
-#TarjetaDetalle
+#TarjetaDetalle 
 {
     margin-top: 10px;
     margin-right: 20px;
@@ -319,8 +458,8 @@
 {
     background-color: #FFFFFF;
     height: 25px;
-    padding-left: 46px;
-    padding-right: 46px;
+    padding-left: 40px;
+    padding-right: 40px;
     border-radius: 20px;
     border: 1px solid #A9A9A9;
     font-family: 'Raleway', sans-serif;
@@ -328,6 +467,27 @@
     margin-bottom: 5px;
     margin-left: -3px;
     margin-right: 15px;
+}
+
+#BtnEliminarTodo
+{
+    margin-top: 4px;
+    background-color: white;
+    border-radius: 100px;
+    font-family: 'Raleway', sans-serif;
+    color: #A2A2A2;
+    border: 1px solid #A9A9A9;
+    cursor: pointer;
+    transition: 1s;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+}
+
+#BtnEliminarTodo:hover
+{
+    background-color: #FF6464;
+    color: white;
 }
 
 #ParteDatosDetalle 
@@ -338,27 +498,72 @@
     padding-bottom: 15px;
 }
 
-#DatosDetalle
+/* Inicio de Apartado de Scroll @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+#ScrollDatosDetalle
+{
+  /*background-color: aquamarine;*/
+  width: 100%;
+  height: 24vh;
+  overflow-y: scroll;
+}
+
+#ScrollDatosDetalle::-webkit-scrollbar 
+{
+    -webkit-appearance: none;
+}
+
+#ScrollDatosDetalle::-webkit-scrollbar:vertical 
+{
+    width: 10px;
+}
+
+#ScrollDatosDetalle::-webkit-scrollbar-button:increment, #scroll::-webkit-scrollbar-button 
+{
+    display: none;
+}
+
+#ScrollDatosDetalle::-webkit-scrollbar:horizontal 
+{
+    height: 10px;
+}
+
+#ScrollDatosDetalle::-webkit-scrollbar-thumb 
+{
+    background-color: #DFDFDF;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+#ScrollDatosDetalle::-webkit-scrollbar-track 
+{
+    border-radius: 10px;
+}
+
+/* Fin de Apartado de Scroll @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+#DatosDetalle 
 {
     border-radius: 50px;
     background: #D8D8D8;
     border: 0px;
     display: flex;
     height: auto;
-    padding-bottom: 6px !important;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
 }
 
 #CampoDetalleTitulo
 {
     background-color: #FFFFFF;
     height: 25px;
-    width: 110vw;
+    width: 10vw;
     border-radius: 20px;
     border: 1px solid #A9A9A9;
     font-family: 'Raleway', sans-serif;
-    margin-top: 4px;
-    margin-bottom: 5px;
     margin-right: 10px;
+    text-align: center;
 }
 
 #CampoDetalle
@@ -367,31 +572,80 @@
     height: 25px;
     border-radius: 20px;
     border: 1px solid #A9A9A9;
-    font-family: 'Raleway', sans-serif;
-    margin-top: 4px;
     padding-left: 42px;
     padding-right: 42px;
-    margin-bottom: 5px;
     margin-right: 10px;
 }
 
 #BtnEliminarDetalle 
 {
-    background-color: #FF5F5F;
+    background-color: white;
     border-radius: 20px;
     font-family: 'Raleway', sans-serif;
     padding-left: 5px;
     padding-right: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-right: 10px;
+    color: #A2A2A2;
+    border: 1px solid #A9A9A9;
+    cursor: pointer;
+    transition: 1s;
+    margin-left: 48px;
+}
+
+
+#BtnEliminarDetalle:hover
+{
+    background-color: #FF6464;
     color: white;
 }
 
+/*Apartado del footer de detalles @@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+#FooterDetalle
+{
+    display: flex; 
+    justify-content: flex-start;
+    background-color: #FFFFFF;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top: 1px solid #D5D5D5;
+}
+
+#EncajeContenidoMuestraDatos 
+{
+    display: flex;
+    flex-direction: row;
+    padding-left: 0px !important;
+    margin-right: 15px;
+}
+
+#IconoContenidoMuestraDatos
+{
+    background: #CBCBCB;
+    color: white;
+    padding: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    width: 5vh;
+}
+
+#NombreContenidoMuestraDatos 
+{
+    background: #E8E8E8;
+    padding: 4px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    width: 100%;
+    color: #353535;
+}
+
 /*-----------------------------------------------------------------------------------------------------------*/
-/*MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM APARTADO RESPONSIVE MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM*/
+/*MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM APARTADO RESPONSIVE - MENU AZUL MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM*/
 /*-----------------------------------------------------------------------------------------------------------*/
-@media screen and (max-width: 880px) {
+
+@media screen and (max-width: 880px) 
+{
     #TarjetaInputs
     {
         width: auto;
@@ -458,4 +712,31 @@
         margin-right: 0px;
     }
 
+}
+
+/*-----------------------------------------------------------------------------------------------------------*/
+/*MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM APARTADO RESPONSIVE - TARJETAS MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM*/
+/*-----------------------------------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 1250px) 
+{
+    #ApartadoInputs
+    {
+        overflow-y: scroll;
+    }
+
+    #TarjetaInputs
+    {
+        width: 520px;
+    }
+
+    #TarjetaBuscar
+    {
+        width: 520px;
+    }
+
+    TarjetaDetalle
+    {
+        width: 100px !important;
+    }
 }

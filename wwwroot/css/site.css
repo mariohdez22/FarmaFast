@@ -102,7 +102,7 @@ body {
     border-radius: 10px;
     border: 0px;
     background-color: #6241C0;
-    margin-top: 16vh;
+    margin-top: 10vh;
 }
 
 #linksMenuFinal:hover 
@@ -189,7 +189,7 @@ body {
 /* basicamente es el segundo "ul" para los dos botones con nombre de abajo */
 #espacio-off
 {
-    margin-top: 13.3vh;
+    margin-top: 7vh;
 }
 
 /*-------------------------------------------------*/
@@ -326,6 +326,7 @@ body {
     {
         height: 100vh;
     }
+
 }
 
 

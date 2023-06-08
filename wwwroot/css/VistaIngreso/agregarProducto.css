@@ -60,6 +60,21 @@
     box-shadow: rgb(106, 180, 99) 3px 3px 6px 0px inset, rgba(115, 191, 107, 0.5) -3px -3px 6px 1px inset;
 }
 
+#BotonMenu1Update 
+{
+    border-radius: 50px;
+    margin-right: 15px;
+    background-color: #DFB75F;
+    border: 0px;
+    font-family: 'Raleway', sans-serif;
+    transition: 0.5s;
+}
+
+#BotonMenu1Update:hover
+{
+    box-shadow: rgb(205, 159, 61) 3px 3px 6px 0px inset, rgba(218, 178, 93, 0.5) -3px -3px 6px 1px inset;
+}
+
 #BotonMenu2 
 {
     border-radius: 50px;

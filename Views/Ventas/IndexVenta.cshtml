@@ -1,8 +1,155 @@
-﻿
+﻿@model List<FarmaFast.Models.ViewModels.VentasVM>
 @{
     ViewData["Title"] = "IndexVenta";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section Estilos
+{
+    <link rel="stylesheet" href="~/css/VistaMuestra/ventas.css" asp-append-version="true"/>
+}
 
-<h1>IndexVenta</h1>
+<div class="row g-2">
+
+    <div class="col-12">
+      
+        <div id="FranjaMenuVerde" class="row" style="margin-left: 0px; margin-right: 0px;">
+            <div id="PXMenuVerde" class="col-12" style="padding-left: 0px; padding-right: 0px; display: flex;">
+                <div class="">
+                    <h1 id="TituloMenuVerde">Administracion Ventas</h1>
+                </div>
+                <img id="PatronMenuVerde" src="/img/FranjaAzulada.png" alt="login-icon" />
+            </div>
+            <div class="col-12" style="padding-left: 0px; padding-right: 0px; z-index: 20  !important;">
+                <div id="ApartadoMenuVerde" class="rounded-5">
+                    <div id="DisplayApartadoMenuVerde">
+                        <div id="ApartadoBotonesMenu" class="col-4 p-2"> 
+                            <a asp-action="GenerarVenta" asp-controller="Ventas" id="BotonMenu1" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Generar Venta</a>
+                            <a id="BotonMenu2" class="btn btn-secondary" ><i class="bi bi-file-earmark-pdf-fill"></i> Generar Reporte</a>
+                        </div>    
+                        <div id="ApartadoBuscadoMenu" class="col-3 p-2">
+                            <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+                               <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-search"></i></div>
+                               <input id="InputMenu" type="text" class="form-control" placeholder="Buscar Venta">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    @*Apartado de los registros de las ventas ---------------------------------------------------------------*@
+
+    <div id="ContenedorMuestraDatos" class="col-12">
+
+        @foreach (var item in Model)
+        {
+            <div id="TarjetaMuestraDatos" class="card border-secondary mb-3">
+
+                  <div id="EncabezadoMuestraDatos" class="card-header">
+                      <div id="NombradosMuestraDatos">
+                          <h4 id="TituloMuestraDatos">Cod.Venta - @item.Codigoventa</h4>
+                      </div>
+                  </div>
+
+                  <div id="CuerpoMuestraDatos" class="card-body text-secondary">
+               
+                      <div id="ContenidoMuestraDatos">
+
+                          <div id="ContenidoParte1MuestraDatos">
+
+                              <div id="EncajeContenidoMuestraDatos">
+                                  <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Codigo Venta"><i class="bi bi-7-circle-fill"></i></div>
+                                  <div id="NombreContenidoMuestraDatos">@item.Codigoventa</div>
+                              </div>
+                              <div id="EncajeContenidoMuestraDatos">
+                                  <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Subtotal"><i class="bi bi-currency-dollar"></i></div>
+                                  <div id="NombreContenidoMuestraDatos">@item.Subtotal</div>
+                              </div>
+                              <div id="EncajeContenidoMuestraDatos">
+                                  <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Total con IVA"><i class="bi bi-currency-exchange"></i></div>
+                                  <div id="NombreContenidoMuestraDatos">@item.Total</div>
+                              </div>
+
+                          </div>
+
+                          <div id="ContenidoParte2MuestraDatos">
+
+                              <div id="EncajeContenidoMuestraDatos">
+                                  <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Usuario"><i class="bi bi-person-circle"></i></div>
+                                  <div id="NombreContenidoMuestraDatos">@item.NombreUsuarios</div>
+                              </div>
+                              <div id="EncajeContenidoMuestraDatos">
+                                  <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Cliente"><i class="bi bi-person-vcard-fill"></i></div>
+                                  <div id="NombreContenidoMuestraDatos">@item.Cliente</div>
+                              </div>
+                              <div id="EncajeContenidoMuestraDatos">
+                                  <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Fecha de Factura"><i class="bi bi-calendar-week-fill"></i></div>
+                                  <div id="NombreContenidoMuestraDatos">@item.Fecha</div>
+                              </div>
+
+                          </div>
+
+                      </div>
+
+                      <div id="ContenidoMuestraDatos2">
+
+                          @foreach (var data in item.DetalleVentas)
+                          {
+                              <div id="TarjetaDatosDetalle">
+
+                                  <div id="ContenidoParte1MuestraDetalle">
+
+                                      <div id="espacioDetalle">
+
+                                          <div id="EncajeContenidoMuestraDetalle">
+                                              <div id="IconoContenidoMuestraDetalle" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Producto"><i class="bi bi-box-seam-fill"></i></div>
+                                              <div id="NombreContenidoMuestraDetalle">@data.Productos</div>
+                                          </div>
+
+                                      </div>
+
+                                      <div id="EncajeContenidoMuestraDetalle">
+                                          <div id="IconoContenidoMuestraDetalle" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Precio"><i class="bi bi-currency-exchange"></i></div>
+                                          <div id="NombreContenidoMuestraDetalle">@data.Precio</div>
+                                      </div>
+
+                                  </div>
+
+                                  <div id="ContenidoParte2MuestraDetalle">
+
+                                      <div id="espacioDetalle">
+
+                                          <div id="EncajeContenidoMuestraDetalle">
+                                              <div id="IconoContenidoMuestraDetalle" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Cantidad"><i class="bi bi-check-square-fill"></i></div>
+                                              <div id="NombreContenidoMuestraDetalle">@data.Cantidad</div>
+                                          </div>
+
+                                      </div>
+
+                                      <div id="EncajeContenidoMuestraDetalle">
+                                          <div id="IconoContenidoMuestraDetalle" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Subtotal"><i class="bi bi-currency-dollar"></i></div>
+                                          <div id="NombreContenidoMuestraDetalle">@Math.Round(data.Subtotal, 2)</div>
+                                      </div>
+
+                                  </div>
+
+                              </div>  
+                          }                       
+
+                      </div>
+
+                      <div id="BotonesContenidoMuestraDatos">
+                          <a id="Boton1ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Imprimir Reporte"><i class="bi bi-file-earmark-pdf-fill"></i></a>
+                      </div>
+                
+                  </div>
+
+            </div>
+        }             
+
+    </div>
+
+</div>
 

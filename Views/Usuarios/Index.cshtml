@@ -24,14 +24,31 @@
                 <div id="ApartadoMenuVerde" class="rounded-5">
                     <div id="DisplayApartadoMenuVerde">
                         <div id="ApartadoBotonesMenu" class="col-4 p-2"> 
-                            <a asp-action="AgregarUsuario" asp-controller="Usuarios" asp-route-idusuario="0" id="BotonMenu1" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Agregar Usuarios</a>
-                            <a id="BotonMenu2" class="btn btn-secondary"><i class="bi bi-file-earmark-pdf-fill"></i> Generar Reporte</a>
+
+                            @if (User.IsInRole("Gerente"))
+                            {
+                                <a id="BotonMenu2" class="btn btn-secondary"><i class="bi bi-file-earmark-pdf-fill"></i> Generar Reporte</a>
+                            }
+                            else
+                            {
+                                <a asp-action="AgregarUsuario" asp-controller="Usuarios" asp-route-idusuario="0" id="BotonMenu1" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Agregar Usuarios</a>
+                                <a id="BotonMenu2" class="btn btn-secondary"><i class="bi bi-file-earmark-pdf-fill"></i> Generar Reporte</a>
+                            }                           
+
                         </div>    
                         <div id="ApartadoBuscadoMenu" class="col-3 p-2">
-                            <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
-                               <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-search"></i></div>
-                               <input id="InputMenu" type="text" class="form-control" placeholder="Buscar Usuario">
-                            </div>
+
+                            <form asp-controller="Usuarios" asp-action="Index">
+
+                                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+
+                                   <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-search"></i></div>
+                                   <input id="InputMenu" name="buscar" type="text" class="form-control" placeholder="Buscar Usuario">
+
+                                </div>
+
+                            </form>
+
                         </div>
                     </div>
                 </div>
@@ -90,8 +107,17 @@
                           </div>
                       </div>
                       <div id="CuerpoBotonesUsuario">
-                          <a asp-action="AgregarUsuario" asp-controller="Usuarios" asp-route-idusuario="@item.Idusuario" id="BotonCuerpo1" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Editar</a>
-                          <a id="BotonCuerpo2" class="btn btn-secondary" ><i class="bi bi-file-earmark-pdf-fill"></i> Rechazar</a>
+
+                          @if (User.IsInRole("Gerente"))
+                          {
+                              <a id="BotonCuerpo2" class="btn btn-secondary" >Deshabilitado</a>
+                          }
+                          else
+                          {
+                              <a asp-action="AgregarUsuario" asp-controller="Usuarios" asp-route-idusuario="@item.Idusuario" id="BotonCuerpo1" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Editar</a>
+                              <a id="BotonCuerpo2" class="btn btn-secondary" ><i class="bi bi-x-circle-fill"></i> Rechazar</a>
+                          }                       
+
                       </div>
                 
                   </div>
@@ -104,7 +130,7 @@
 
   </div>
 
-  @if (TempData["MensajeActualizar"] != null)
+@if (TempData["MensajeActualizar"] != null)
 {
 
     <div class="toast-container position-fixed bottom-0 end-0 p-3">

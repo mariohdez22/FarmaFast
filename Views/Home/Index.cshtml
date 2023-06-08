@@ -1,8 +1,28 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@section Estilos
+{
+    <link rel="stylesheet" href="~/css/VistaMuestra/home.css" asp-append-version="true" />
+}
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div id="contenedorImagen">
+
+    <div id="cajaDatos">
+
+        <div id="datos">
+
+            <div id="imagenDatos">
+                <img src="@ViewData["imagenUsuario"]" width="165" height="150"/>
+            </div>
+
+            <div id="titulos">
+                <h1>@ViewData["nombreUsuario"]</h1>
+                <h2>@ViewData["tipoUsuario"]</h2>
+            </div>
+
+        </div>
+
+    </div>
+
 </div>

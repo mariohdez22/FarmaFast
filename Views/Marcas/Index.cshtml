@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<FarmaFast.Models.Marca>
+@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -22,8 +23,17 @@
                 <div id="ApartadoMenuVerde" class="rounded-5">
                     <div id="DisplayApartadoMenuVerde">
                         <div id="ApartadoBotonesMenu" class="col-4 p-2"> 
-                            <a asp-action="AgregarMarca" asp-controller="Marcas" id="BotonMenu1" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Agregar Marcas</a>
-                            <a id="BotonMenu2" class="btn btn-secondary" ><i class="bi bi-file-earmark-pdf-fill"></i> Generar Reporte</a>
+
+                            @if (User.IsInRole("Colocador"))
+                            {
+                                <a id="BotonMenu2" class="btn btn-secondary" ><i class="bi bi-file-earmark-pdf-fill"></i> Generar Reporte</a> 
+                            }
+                            else
+                            {
+                                <a asp-action="AgregarMarca" asp-controller="Marcas" id="BotonMenu1" asp-route-idmarca="0" class="btn btn-secondary" ><i class="bi bi-plus-circle-fill"></i> Agregar Marcas</a>
+                                <a id="BotonMenu2" class="btn btn-secondary" ><i class="bi bi-file-earmark-pdf-fill"></i> Generar Reporte</a>   
+                            }
+
                         </div>    
                         <div id="ApartadoBuscadoMenu" class="col-3 p-2">
                             <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
@@ -40,320 +50,78 @@
 
       <div id="ContenedorMuestraDatos" class="col-12">
 
-          <div id="TarjetaMuestraDatos" class="card border-secondary mb-3">
+          @foreach (var item in Model)
+          {
+              <div id="TarjetaMuestraDatos" class="card border-secondary mb-3">
 
-              <div id="EncabezadoMuestraDatos" class="card-header">
-                  <div id="NombradosMuestraDatos">
-                      <h4 id="TituloMuestraDatos">Drogeria SalvaSpers</h4>
-                  </div>
-              </div>
-
-              <div id="CuerpoMuestraDatos" class="card-body text-secondary">
-               
-                  <div id="ContenidoMuestraDatos">
-                      <div id="ContenidoParte1MuestraDatos">
-
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre Empresa"><i class="bi bi-building-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Empresa Vigente</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Estilo Producto"><i class="bi bi-stack"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Antibioticos y Pastillas</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre Proveedor"><i class="bi bi-person-vcard-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Gerardo Ramirez</div>
-                          </div>
-
+                  <div id="EncabezadoMuestraDatos" class="card-header">
+                      <div id="NombradosMuestraDatos">
+                          <h4 id="TituloMuestraDatos">@item.Nombre</h4>
                       </div>
                   </div>
 
-                  <div id="BotonesContenidoMuestraDatos">
-                      <a id="Boton1ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Editar Marca"><i class="bi bi-arrow-up-right-circle-fill"></i></a>
-                      <a id="Boton2ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar Marca"><i class="bi bi-x-circle-fill"></i></a> 
-                      <a id="Boton3ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Datos Proveedor"><i class="bi bi-person-vcard-fill"></i></a>
-                  </div>
-                
-              </div>
-
-          </div>
-
-          <div id="TarjetaMuestraDatos" class="card border-secondary mb-3">
-
-              <div id="EncabezadoMuestraDatos" class="card-header">
-                  <div id="NombradosMuestraDatos">
-                      <h4 id="TituloMuestraDatos">Drogeria SalvaSpers</h4>
-                  </div>
-              </div>
-
-              <div id="CuerpoMuestraDatos" class="card-body text-secondary">
+                  <div id="CuerpoMuestraDatos" class="card-body text-secondary">
                
-                  <div id="ContenidoMuestraDatos">
-                      <div id="ContenidoParte1MuestraDatos">
+                      <div id="ContenidoMuestraDatos">
+                          <div id="ContenidoParte1MuestraDatos">
 
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre Empresa"><i class="bi bi-building-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Empresa Vigente</div>
+                              <div id="EncajeContenidoMuestraDatos">
+                                  <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre Empresa"><i class="bi bi-building-fill"></i></div>
+                                  <div id="NombreContenidoMuestraDatos">@item.IdvigenciaNavigation.EstadoVigencia</div>
+                              </div>
+                              <div id="EncajeContenidoMuestraDatos">
+                                  <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Estilo Producto"><i class="bi bi-stack"></i></div>
+                                  <div id="NombreContenidoMuestraDatos">@item.IdestiloNavigation.EstiloProducto1</div>
+                              </div>
+                              <div id="EncajeContenidoMuestraDatos">
+                                  <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre Proveedor"><i class="bi bi-person-vcard-fill"></i></div>
+                                  <div id="NombreContenidoMuestraDatos">@item.IdproveedorNavigation.Nombre</div>
+                              </div>
+
                           </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Estilo Producto"><i class="bi bi-stack"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Antibioticos y Pastillas</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre Proveedor"><i class="bi bi-person-vcard-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Gerardo Ramirez</div>
-                          </div>
+                      </div>
+
+                      <div id="BotonesContenidoMuestraDatos">
+
+                          @if (User.IsInRole("Colocador"))
+                          {
+                              <a id="Boton3ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Datos Proveedor"><i class="bi bi-person-vcard-fill"></i></a>
+                          }
+                          else
+                          {
+                              <a asp-action="AgregarMarca" asp-controller="Marcas" asp-route-idmarca="@item.Idmarca" id="Boton1ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Editar Marca"><i class="bi bi-arrow-up-right-circle-fill"></i></a>
+                              <a id="Boton2ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar Marca"><i class="bi bi-x-circle-fill"></i></a> 
+                              <a asp-action="Index" asp-controller="Proveedores" id="Boton3ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Datos Proveedor"><i class="bi bi-person-vcard-fill"></i></a>
+                          }                      
 
                       </div>
-                  </div>
-
-                  <div id="BotonesContenidoMuestraDatos">
-                      <a id="Boton1ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Editar Marca"><i class="bi bi-arrow-up-right-circle-fill"></i></a>
-                      <a id="Boton2ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar Marca"><i class="bi bi-x-circle-fill"></i></a> 
-                      <a id="Boton3ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Datos Proveedor"><i class="bi bi-person-vcard-fill"></i></a>
-                  </div>
                 
+                  </div>
+
               </div>
-
-          </div>
-
-          <div id="TarjetaMuestraDatos" class="card border-secondary mb-3">
-
-              <div id="EncabezadoMuestraDatos" class="card-header">
-                  <div id="NombradosMuestraDatos">
-                      <h4 id="TituloMuestraDatos">Drogeria SalvaSpers</h4>
-                  </div>
-              </div>
-
-              <div id="CuerpoMuestraDatos" class="card-body text-secondary">
-               
-                  <div id="ContenidoMuestraDatos">
-                      <div id="ContenidoParte1MuestraDatos">
-
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre Empresa"><i class="bi bi-building-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Empresa Vigente</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Estilo Producto"><i class="bi bi-stack"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Antibioticos y Pastillas</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre Proveedor"><i class="bi bi-person-vcard-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Gerardo Ramirez</div>
-                          </div>
-
-                      </div>
-                  </div>
-
-                  <div id="BotonesContenidoMuestraDatos">
-                      <a id="Boton1ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Editar Marca"><i class="bi bi-arrow-up-right-circle-fill"></i></a>
-                      <a id="Boton2ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar Marca"><i class="bi bi-x-circle-fill"></i></a> 
-                      <a id="Boton3ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Datos Proveedor"><i class="bi bi-person-vcard-fill"></i></a>
-                  </div>
-                
-              </div>
-
-          </div>
-
-          <div id="TarjetaMuestraDatos" class="card border-secondary mb-3">
-
-              <div id="EncabezadoMuestraDatos" class="card-header">
-                  <div id="NombradosMuestraDatos">
-                      <h4 id="TituloMuestraDatos">Drogeria SalvaSpers</h4>
-                  </div>
-              </div>
-
-              <div id="CuerpoMuestraDatos" class="card-body text-secondary">
-               
-                  <div id="ContenidoMuestraDatos">
-                      <div id="ContenidoParte1MuestraDatos">
-
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre Empresa"><i class="bi bi-building-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Empresa Vigente</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Estilo Producto"><i class="bi bi-stack"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Antibioticos y Pastillas</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre Proveedor"><i class="bi bi-person-vcard-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Gerardo Ramirez</div>
-                          </div>
-
-                      </div>
-                  </div>
-
-                  <div id="BotonesContenidoMuestraDatos">
-                      <a id="Boton1ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Editar Marca"><i class="bi bi-arrow-up-right-circle-fill"></i></a>
-                      <a id="Boton2ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar Marca"><i class="bi bi-x-circle-fill"></i></a> 
-                      <a id="Boton3ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Datos Proveedor"><i class="bi bi-person-vcard-fill"></i></a>
-                  </div>
-                
-              </div>
-
-          </div>
-
-          <div id="TarjetaMuestraDatos" class="card border-secondary mb-3">
-
-              <div id="EncabezadoMuestraDatos" class="card-header">
-                  <div id="NombradosMuestraDatos">
-                      <h4 id="TituloMuestraDatos">Drogeria SalvaSpers</h4>
-                  </div>
-              </div>
-
-              <div id="CuerpoMuestraDatos" class="card-body text-secondary">
-               
-                  <div id="ContenidoMuestraDatos">
-                      <div id="ContenidoParte1MuestraDatos">
-
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre Empresa"><i class="bi bi-building-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Empresa Vigente</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Estilo Producto"><i class="bi bi-stack"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Antibioticos y Pastillas</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre Proveedor"><i class="bi bi-person-vcard-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Gerardo Ramirez</div>
-                          </div>
-
-                      </div>
-                  </div>
-
-                  <div id="BotonesContenidoMuestraDatos">
-                      <a id="Boton1ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Editar Marca"><i class="bi bi-arrow-up-right-circle-fill"></i></a>
-                      <a id="Boton2ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar Marca"><i class="bi bi-x-circle-fill"></i></a> 
-                      <a id="Boton3ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Datos Proveedor"><i class="bi bi-person-vcard-fill"></i></a>
-                  </div>
-                
-              </div>
-
-          </div>
-
-          <div id="TarjetaMuestraDatos" class="card border-secondary mb-3">
-
-              <div id="EncabezadoMuestraDatos" class="card-header">
-                  <div id="NombradosMuestraDatos">
-                      <h4 id="TituloMuestraDatos">Drogeria SalvaSpers</h4>
-                  </div>
-              </div>
-
-              <div id="CuerpoMuestraDatos" class="card-body text-secondary">
-               
-                  <div id="ContenidoMuestraDatos">
-                      <div id="ContenidoParte1MuestraDatos">
-
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre Empresa"><i class="bi bi-building-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Empresa Vigente</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Estilo Producto"><i class="bi bi-stack"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Antibioticos y Pastillas</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre Proveedor"><i class="bi bi-person-vcard-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Gerardo Ramirez</div>
-                          </div>
-
-                      </div>
-                  </div>
-
-                  <div id="BotonesContenidoMuestraDatos">
-                      <a id="Boton1ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Editar Marca"><i class="bi bi-arrow-up-right-circle-fill"></i></a>
-                      <a id="Boton2ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar Marca"><i class="bi bi-x-circle-fill"></i></a> 
-                      <a id="Boton3ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Datos Proveedor"><i class="bi bi-person-vcard-fill"></i></a>
-                  </div>
-                
-              </div>
-
-          </div>
-
-          <div id="TarjetaMuestraDatos" class="card border-secondary mb-3">
-
-              <div id="EncabezadoMuestraDatos" class="card-header">
-                  <div id="NombradosMuestraDatos">
-                      <h4 id="TituloMuestraDatos">Drogeria SalvaSpers</h4>
-                  </div>
-              </div>
-
-              <div id="CuerpoMuestraDatos" class="card-body text-secondary">
-               
-                  <div id="ContenidoMuestraDatos">
-                      <div id="ContenidoParte1MuestraDatos">
-
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre Empresa"><i class="bi bi-building-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Empresa Vigente</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Estilo Producto"><i class="bi bi-stack"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Antibioticos y Pastillas</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre Proveedor"><i class="bi bi-person-vcard-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Gerardo Ramirez</div>
-                          </div>
-
-                      </div>
-                  </div>
-
-                  <div id="BotonesContenidoMuestraDatos">
-                      <a id="Boton1ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Editar Marca"><i class="bi bi-arrow-up-right-circle-fill"></i></a>
-                      <a id="Boton2ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar Marca"><i class="bi bi-x-circle-fill"></i></a> 
-                      <a id="Boton3ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Datos Proveedor"><i class="bi bi-person-vcard-fill"></i></a>
-                  </div>
-                
-              </div>
-
-          </div>
-
-          <div id="TarjetaMuestraDatos" class="card border-secondary mb-3">
-
-              <div id="EncabezadoMuestraDatos" class="card-header">
-                  <div id="NombradosMuestraDatos">
-                      <h4 id="TituloMuestraDatos">Drogeria SalvaSpers</h4>
-                  </div>
-              </div>
-
-              <div id="CuerpoMuestraDatos" class="card-body text-secondary">
-               
-                  <div id="ContenidoMuestraDatos">
-                      <div id="ContenidoParte1MuestraDatos">
-
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre Empresa"><i class="bi bi-building-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Empresa Vigente</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Estilo Producto"><i class="bi bi-stack"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Antibioticos y Pastillas</div>
-                          </div>
-                          <div id="EncajeContenidoMuestraDatos">
-                              <div id="IconoContenidoMuestraDatos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Nombre Proveedor"><i class="bi bi-person-vcard-fill"></i></div>
-                              <div id="NombreContenidoMuestraDatos">Gerardo Ramirez</div>
-                          </div>
-
-                      </div>
-                  </div>
-
-                  <div id="BotonesContenidoMuestraDatos">
-                      <a id="Boton1ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Editar Marca"><i class="bi bi-arrow-up-right-circle-fill"></i></a>
-                      <a id="Boton2ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar Marca"><i class="bi bi-x-circle-fill"></i></a> 
-                      <a id="Boton3ContenidoMuestraDatos" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Datos Proveedor"><i class="bi bi-person-vcard-fill"></i></a>
-                  </div>
-                
-              </div>
-
-          </div>
+          }          
 
       </div>
 
   </div>
+
+@if (TempData["MensajeActualizar"] != null)
+{
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div id="headerNotiUpdate" class="toast-header bg-info text-white">
+                <i class="bi bi-capsule-pill"></i>
+                <strong class="me-auto">&nbsp;FarmaFast</strong>
+                <small>@DateTime.Now</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                @TempData["MensajeActualizar"]
+            </div>
+        </div>
+    </div>
+
+}
 
 

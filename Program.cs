@@ -1,5 +1,9 @@
 using FarmaFast.Models;
+using FarmaFast.Servicios.Contrato;
+using FarmaFast.Servicios.Implementacion;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +31,17 @@ builder.Services.AddRazorPages()
 
 //------------------------------------------------------------------------------------------
 
+builder.Services.AddScoped<IUsuarioServices, UsuarioServices>();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+       .AddCookie(option =>
+       {
+           option.LoginPath = "/Login/Index";
+           option.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+       });
+
+//------------------------------------------------------------------------------------------
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -37,15 +52,20 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
+CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("en-US");
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Usuarios}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=Index}/{id?}");
 
 app.Run();

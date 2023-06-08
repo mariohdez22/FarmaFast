@@ -69,9 +69,38 @@ body {
     border: 0px;
     margin-top: 2vh;
     color: white;
+    transition: 0.5s;
+}
+
+.btn:hover
+{
+    color: yellow;
+    background: linear-gradient(24deg, #6dd5ed, #1517b9);
 }
 
 
 .box {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px
+}
+
+/*-----------------------------------------------------------------------------------------*/
+
+#liveToast
+{
+    border-radius: 10px !important;
+    border: 0px !important;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px !important;
+}
+
+#headerNoti
+{
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    border: 0px !important;
+    background: linear-gradient(40deg, #FF5050, #793FFF);
+}
+
+.toast-body
+{
+    font-weight: 500;
 }

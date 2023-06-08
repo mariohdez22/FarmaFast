@@ -27,10 +27,18 @@
                             <a id="BotonMenu2" class="btn btn-secondary" ><i class="bi bi-file-earmark-pdf-fill"></i> Generar Reporte</a>
                         </div>    
                         <div id="ApartadoBuscadoMenu" class="col-3 p-2">
-                            <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
-                               <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-search"></i></div>
-                               <input id="InputMenu" type="text" class="form-control" placeholder="Buscar Proveedor">
-                            </div>
+
+                            <form asp-controller="Proveedores" asp-action="Index">
+
+                                <div id="GrupoInput" class="input-group mb-3" style="height: 2vh;">
+
+                                   <div id="InputIconoMenu" class="input-group-text"><i class="bi bi-search"></i></div>
+                                   <input id="InputMenu" name="buscar" type="text" class="form-control" placeholder="Buscar Proveedor">
+
+                                </div>
+
+                            </form>
+
                         </div>
                     </div>
                 </div>
@@ -78,7 +86,7 @@
 
                     <div id="BotonesContenidoMuestraDatos">
                         <a asp-action="AgregarProveedor" asp-controller="Proveedores" asp-route-idproveedor="@item.Idproveedor" id="Boton1ContenidoMuestraDatos" class="btn btn-secondary"><i class="bi bi-plus-circle-fill"></i> Editar</a>
-                        <a id="Boton2ContenidoMuestraDatos" class="btn btn-secondary"><i class="bi bi-file-earmark-pdf-fill"></i> Rechazar</a>
+                        <a id="Boton2ContenidoMuestraDatos" class="btn btn-secondary"><i class="bi bi-x-circle-fill"></i> Rechazar</a>
                     </div>
 
                 </div>

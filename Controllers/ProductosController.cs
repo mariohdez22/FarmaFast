@@ -14,9 +14,27 @@ namespace FarmaFast.Controllers
         {
             _basedatos = basedatos;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string buscar)
         {
-            var productos = await _basedatos.Productos.Include(tu => tu.IdestadoProductoNavigation).Include(eu => eu.IdtipoProductoNavigation).Include(si => si.IdmarcaNavigation).ToListAsync();
+            var productos = await _basedatos.Productos
+                            .Include(tu => tu.IdestadoProductoNavigation)
+                            .Include(eu => eu.IdtipoProductoNavigation)
+                            .Include(si => si.IdmarcaNavigation)
+                            .OrderByDescending(d => d.Idproducto)
+                            .ToListAsync();
+
+            if (!String.IsNullOrEmpty(buscar))
+            {
+                productos = await _basedatos.Productos.Where(
+
+                    b => b.Nombre!.Contains(buscar) ||
+                         b.IdmarcaNavigation.Nombre!.Contains(buscar) ||
+                         b.IdtipoProductoNavigation.TipoProducto1!.Contains(buscar) ||
+                         b.IdestadoProductoNavigation.EstadoProducto1!.Contains(buscar)
+
+                    ).ToListAsync();
+            }
+
             return View(productos);
         }
         [HttpGet]
