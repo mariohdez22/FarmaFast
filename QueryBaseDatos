@@ -1,0 +1,198 @@
+create database FarmaFast
+
+use FarmaFast
+
+create table estado_usuario
+(
+	idestadoUsuario int identity(1,1) not null primary key,
+	estadoUsuario varchar (max) not null
+)
+
+create table tipo_usuario
+(
+	idtipoUsuario int identity(1,1) not null primary key,
+	tipoUsuario varchar (max) not null
+)
+
+create table usuarios
+(
+	idusuario int identity(1,1) not null primary key,
+	nombres varchar(max) not null,
+	correo varchar(max) not null,
+	celular varchar(max) not null,
+	dui varchar(max) not null,
+	idestadoUsuario int not null references estado_usuario(idestadoUsuario),
+	idtipoUsuario int not null references tipo_usuario(idtipoUsuario)
+)
+
+alter table usuarios 
+add contrasena varchar(max) not null;
+
+alter table usuarios 
+add imagen varchar(max) not null;
+
+create table estado_proveedor
+(
+	idestadoProveedor int identity(1,1) not null primary key,
+	estadoProveedor  varchar (max) not null
+)
+
+create table proveedor
+(
+	idproveedor int identity(1,1) not null primary key,
+	correo varchar (max) not null,
+	dui varchar (max) not null,
+	celular varchar (max) not null,
+	idestadoProveedor int not null references estado_proveedor(idestadoProveedor)
+)
+
+alter table proveedor 
+add nombre varchar(max) not null;
+
+create table vigencia
+(
+	idvigencia int identity(1,1) not null primary key,
+	estadoVigencia varchar(max) not null
+)
+
+create table estilo_producto
+(
+	idestilo int identity(1,1) not null primary key,
+	estiloProducto varchar(max) not null
+)
+
+create table marca
+(
+	idmarca int identity(1,1) not null primary key,
+	nombre varchar(max) not null,
+	idvigencia int not null references vigencia(idvigencia),
+	idestilo int not null references estilo_producto(idestilo),
+)
+
+alter table marca 
+add idproveedor int not null references proveedor(idproveedor);
+
+create table estado_producto
+(
+	idestadoProducto int identity(1,1) not null primary key,
+	estadoProducto varchar(max) not null
+)
+
+create table tipo_producto
+(
+	idtipoProducto int identity(1,1) not null primary key,
+	tipoProducto varchar (max) not null
+)
+
+create table producto
+(
+	idproducto int identity(1,1) not null primary key,
+	nombre varchar (max) not null,
+	precio numeric(10,2) not null,
+	cantidad int not null,
+	imagen varchar(max) not null,
+	idmarca int not null references marca(idmarca),
+	idtipoProducto int not null references tipo_producto(idtipoProducto),
+	idestadoProducto int not null references estado_producto(idestadoProducto)
+)
+
+create table venta
+(
+	idventa int identity(1,1) not null primary key,
+	codigoventa varchar (max) not null,
+	total numeric(10,2) not null,
+	subtotal numeric(10,2) not null,
+	idusuario int not null references usuarios(idusuario),
+	cliente varchar(max) not null,
+	fecha datetime not null
+)
+
+create table detalle_venta
+(
+	iddetalleVenta int identity(1,1) not null primary key,
+	idventa int not null references venta(idventa),
+	idproducto int not null references producto(idproducto),
+	cantidad int not null,
+	precio numeric(10,2) not null,
+)
+
+insert into estado_usuario
+values ('Vigente'),
+	   ('Ausente'),
+	   ('Despedido')
+
+insert into tipo_usuario
+values ('Administrador'),
+	   ('Gerente'),
+	   ('Vendedor'),
+	   ('Colocador')
+
+/*--------------------------------------------------------------------*/
+
+insert into estado_proveedor
+values ('Vigente'),
+	   ('Despedido')
+
+insert into proveedor
+values ('hola123@gmail.com', '982389321', '23783287', 1, 'Mario Oscar')
+
+insert into vigencia
+values ('vigente'),
+	   ('Cancelada')
+
+insert into estilo_producto
+values('Medicina Variada'),
+	  ('Medicamentos orales'),
+	  ('Primeros Ausilios'),
+	  ('Vacunas y Diluyentes')
+
+insert into marca 
+values('EmpresaIDK', 1, 1, 1)
+
+insert into estado_producto
+values('Disponible'),
+	  ('Agotado')
+
+insert into tipo_producto
+values('Capsula'),
+	  ('Pastilla'),
+	  ('Antibiotico'),
+	  ('Topico'),
+	  ('Pomada'),
+	  ('Diluyente'),
+	  ('Primeros Ausilios')
+
+insert into producto
+values('Tabcin', 5.00, 500, 'uvheuveugveveveveve.jpg', 1, 2, 1),
+	  ('Tabcin', 5.00, 500, 'uvheuveugveveveveve.jpg', 1, 2, 1)
+
+select * from estado_usuario
+
+select * from tipo_usuario
+
+select * from usuarios
+
+select * from estado_proveedor
+
+select * from proveedor
+
+select * from vigencia
+
+select * from estilo_producto
+
+select * from marca
+
+select * from estado_producto
+
+select * from tipo_producto
+
+select * from producto
+
+select * from venta
+
+select * from detalle_venta
+
+
+
+
+
